@@ -41,7 +41,7 @@ const Login = () => {
         }}
       >
         {/* Logo Section */}
-        <Box sx={{ textAlign: 'center', mb: 2 }}>
+        <Box sx={{ textAlign: 'center', mb: 2, mt: 3 }}>
           <img
             src="https://3rnestocs.github.io/banco/logo.png"
             alt="Banco Universitario"
