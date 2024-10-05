@@ -42,7 +42,7 @@ const Login = () => {
         <Container
           maxWidth="sm"
           sx={{
-            p: 12,
+            p: 8,
             boxShadow: 3,
             borderRadius: 2,
             backgroundColor: '#fff',
