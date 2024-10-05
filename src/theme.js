@@ -5,12 +5,12 @@ const theme = createTheme({
 	typography: {
 		fontFamily: 'Roboto, sans-serif',
 		h4: {
-      fontWeight: 500, // Medium
-    },
-    h5: {
-      fontWeight: 500, // Medium
+			fontWeight: 500, // Medium
+		},
+		h5: {
+			fontWeight: 500, // Medium
 			color: '#085F63', // Main teal text color
-    },
+		},
 		body1: {
 			fontSize: '1em',
 			color: '#727374', // Dark gray text color
@@ -32,16 +32,22 @@ const theme = createTheme({
 		},
 		MuiOutlinedInput: {
 			styleOverrides: {
-			  root: {
-				'&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-				  borderColor: '#085F63', // Change the outline color when focused
+				root: {
+					'&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+						borderColor: '#49BEB7', // Change the outline color when focused
+					},
 				},
-			  },
-			  notchedOutline: {
-				borderColor: '#ccc', // Optional: Default outline color
-			  },
 			},
-		  },
+		},
+		MuiInputLabel: {
+			styleOverrides: {
+				root: {
+					'&.Mui-focused': {
+						color: '#49BEB7', // Color when the label moves to the top
+					},
+				},
+			},
+		},
 		MuiButton: {
 			styleOverrides: {
 				root: {
