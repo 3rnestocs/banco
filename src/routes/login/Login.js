@@ -45,7 +45,7 @@ const Login = () => {
           <img
             src="https://3rnestocs.github.io/banco/logo.png"
             alt="Banco Universitario"
-            style={{ width: '150px' }}
+            style={{ width: '33%' }}
           />
         </Box>
 
