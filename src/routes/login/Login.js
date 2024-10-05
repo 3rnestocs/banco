@@ -43,7 +43,7 @@ const Login = () => {
         {/* Logo Section */}
         <Box sx={{ textAlign: 'center', mb: 3 }}>
           <img
-            src={`${process.env.PUBLIC_URL}/logo.png`} // This ensures proper path resolution for GitHub Pages
+            src="./3rnestocs.github.io/banco/logo.png"
             alt="Banco Universitario"
             style={{ width: '150px' }}
           />
