@@ -59,7 +59,7 @@ const Login = () => {
           </Box>
 
           {/* Heading */}
-          <Typography variant="h4" align="center" sx={{ mb: 2 }}>
+          <Typography variant="h5" align="center" sx={{ mb: 2 }}>
             Banca en línea
           </Typography>
 

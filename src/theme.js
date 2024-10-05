@@ -5,10 +5,11 @@ const theme = createTheme({
 	typography: {
 		fontFamily: 'Roboto, sans-serif',
 		h4: {
-      fontWeight: 700, // Bold
+      fontWeight: 500, // Medium
     },
     h5: {
-      fontWeight: 400, // Regular
+      fontWeight: 500, // Medium
+			color: '#085F63', // Main teal text color
     },
 		body1: {
 			fontSize: '1em',
@@ -48,6 +49,7 @@ const theme = createTheme({
 				// Button without background (text button)
 				textPrimary: {
 					color: '#085F63',
+					fontWeight: 500, // Medium
 					fontFamily: 'Montserrat Alternates, sans-serif',
 					'&:hover': {
 						backgroundColor: 'transparent', // No background on hover
