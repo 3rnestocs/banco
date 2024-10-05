@@ -1,20 +1,17 @@
+// src/pages/institutional/Institutional.js
 import React from 'react';
-import { Link } from 'react-router-dom';
-import './Institutional.css'; // Optionally, if you have custom styling
+import { Typography, Button } from '@mui/material';
 
 const Institutional = () => {
-    return (
-      <div className="institutional-page">
-        <h1>Welcome to Banco Universitario</h1>
-        <p>
-          We are committed to providing you with the best services...
-        </p>
-        {/* Use Link for navigation */}
-        <Link to="/login">
-          <button>Go to Login</button>
-        </Link>
-      </div>
-    );
-  };
+  return (
+    <div>
+      <Typography variant="h1">Bienvenido al Banco Universitario</Typography>
+      <Typography variant="body1">
+        Estamos comprometidos para brindarte los mejores servicios!...
+      </Typography>
+      <Button variant="contained" color="primary">Iniciar sesión</Button>
+    </div>
+  );
+};
 
 export default Institutional;
