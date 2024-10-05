@@ -30,6 +30,18 @@ const theme = createTheme({
 				},
 			},
 		},
+		MuiOutlinedInput: {
+			styleOverrides: {
+			  root: {
+				'&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+				  borderColor: '#085F63', // Change the outline color when focused
+				},
+			  },
+			  notchedOutline: {
+				borderColor: '#ccc', // Optional: Default outline color
+			  },
+			},
+		  },
 		MuiButton: {
 			styleOverrides: {
 				root: {
