@@ -42,8 +42,7 @@ const Login = () => {
         <Container
           maxWidth="sm"
           sx={{
-            mt: 8,
-            p: 6,
+            p: 12,
             boxShadow: 3,
             borderRadius: 2,
             backgroundColor: '#fff',
@@ -67,7 +66,7 @@ const Login = () => {
 
           {/* Form */}
           <form onSubmit={handleSubmit}>
-            <Typography sx={{ textAlign: 'center', mb: 2 }}>
+            <Typography sx={{ textAlign: 'center' }}>
               Ingresa tus credenciales para continuar
             </Typography>
 
