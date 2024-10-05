@@ -34,6 +34,7 @@ const theme = createTheme({
 				root: {
 					borderRadius: '8px', // Optional: You can customize this
 					textTransform: 'none', // Optional: To remove uppercase styling
+					fontSize: '1em', // Optional: Adjust button font size
 				},
 				// Button with background (primary button)
 				containedPrimary: {

@@ -36,14 +36,14 @@ const Login = () => {
           display: 'flex', // Flexbox for centering
           justifyContent: 'center', // Center horizontally
           alignItems: 'center', // Center vertically
-          backgroundColor: '#f5f5f5', // Optional background color for the whole page
+          backgroundColor: '#EEF2F6', // Optional background color for the whole page
         }}
       >
         <Container
           maxWidth="sm"
           sx={{
             mt: 8,
-            p: 4,
+            p: 6,
             boxShadow: 3,
             borderRadius: 2,
             backgroundColor: '#fff',
