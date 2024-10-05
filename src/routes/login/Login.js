@@ -12,7 +12,7 @@ import {
 } from '@mui/material';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 import { ThemeProvider } from '@mui/material/styles';
-import theme from './theme'; // Adjust the path to your theme file
+import theme from '../../theme'; // Adjust the path to your theme file
 
 const Login = () => {
   const [email, setEmail] = useState('');
