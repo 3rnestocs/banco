@@ -1,5 +1,6 @@
 {
   "name": "banco",
+  "homepage": "https://3rnestocs.github.io/banco",
   "version": "0.1.0",
   "private": false,
   "dependencies": {
