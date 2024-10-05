@@ -43,7 +43,7 @@ const Login = () => {
         {/* Logo Section */}
         <Box sx={{ textAlign: 'center', mb: 3 }}>
           <img
-            src="/logo.png"
+            src={`${process.env.PUBLIC_URL}/logo.png`} // This ensures proper path resolution for GitHub Pages
             alt="Banco Universitario"
             style={{ width: '150px' }}
           />
@@ -54,8 +54,8 @@ const Login = () => {
           Banca en línea
         </Typography>
 
-        <Divider sx={{ mb: 2 }}/>
-        
+        <Divider sx={{ mb: 2 }} />
+
         {/* Form */}
         <form onSubmit={handleSubmit}>
           <Typography sx={{ textAlign: 'center', mb: 2 }}>
@@ -97,12 +97,12 @@ const Login = () => {
           />
 
           {/* Submit Button */}
-          <Button fullWidth type="submit" variant="contained"  color="primary" sx={{ mt: 3 }}>
+          <Button fullWidth type="submit" variant="contained" color="primary" sx={{ mt: 4 }}>
             Iniciar sesión
           </Button>
         </form>
-        
-        <Divider sx={{ mt: 1, mb: 1 }}/>
+
+        <Divider sx={{ mt: 3, mb: 1 }} />
 
         {/* Register Link */}
         <Link href="/register">
@@ -110,6 +110,7 @@ const Login = () => {
             ¿No tienes una cuenta?
           </Button>
         </Link>
+
         {/* Footer */}
         <Typography variant="body2" align="center" color="textSecondary" sx={{ mt: 4 }}>
           Banco Universitario © | 2024
