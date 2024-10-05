@@ -43,19 +43,17 @@ const Login = () => {
         {/* Logo Section */}
         <Box sx={{ textAlign: 'center', mb: 3 }}>
           <img
-            src="/logo.png" // Adjust the path to your logo
+            src="%PUBLIC_URL%/logo.png"
             alt="Banco Universitario"
             style={{ width: '150px' }}
           />
         </Box>
 
         {/* Heading */}
-        <Typography variant="h5" align="center" sx={{ mb: 2, fontWeight: 'bold' }}>
+        <Typography variant="h3" align="center" sx={{ mb: 1 }}>
           Banca en línea
         </Typography>
-
-        <Divider component="li" />
-
+        <Divider sx={{ mb: 1 }}/>
         {/* Form */}
         <form onSubmit={handleSubmit}>
           <Typography sx={{ textAlign: 'center', mb: 2 }}>
@@ -100,27 +98,19 @@ const Login = () => {
           <Button
             fullWidth
             type="submit"
-            variant="contained"
-            sx={{
-              mt: 3,
-              mb: 2,
-              backgroundColor: '#49BEB7',
-              fontFamily: 'Roboto',
-              '&:hover': {
-                backgroundColor: '#49BEB7',
-              },
-            }}
+            variant="text" 
+            color="primary"
           >
             Iniciar sesión
           </Button>
         </form>
 
         {/* Register Link */}
-        <Typography align="center">
-          <Link href="/register" underline="none" sx={{ color: '#085F63' }}>
+        <Link href="/register">
+          <Button variant="text" color="primary">
             ¿No tienes una cuenta?
-          </Link>
-        </Typography>
+          </Button>
+        </Link>
 
         {/* Footer */}
         <Typography variant="body2" align="center" color="textSecondary" sx={{ mt: 4 }}>
