@@ -8,9 +8,11 @@ const Institutional = () => {
       <Typography variant="body1">
         Estamos comprometidos para brindarte los mejores servicios!...
       </Typography>
-      <Button variant="contained" color="primary">
-        Iniciar sesión
-      </Button>
+      <Link to="/login">
+        <Button variant="contained" color="primary">
+          Iniciar sesión
+        </Button>
+      </Link>
       <Button variant="text" color="primary">
         Hacer otra cosa
       </Button>
