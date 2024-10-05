@@ -3,7 +3,21 @@ import { createTheme } from '@mui/material/styles';
 
 const theme = createTheme({
 	typography: {
-		fontFamily: 'Roboto, sans-serif'
+		fontFamily: 'Roboto, sans-serif',
+		h4: {
+      fontWeight: 700, // Bold
+    },
+    h5: {
+      fontWeight: 400, // Regular
+    },
+		body1: {
+			fontSize: '1em',
+			color: '#727374', // Dark gray text color
+		},
+		body2: {
+			fontSize: '1em',
+			color: '#313131', // Black text color
+		},
 	},
 	components: {
 		MuiTextField: {

@@ -53,7 +53,9 @@ const Login = () => {
         <Typography variant="h4" align="center" sx={{ mb: 2 }}>
           Banca en línea
         </Typography>
+
         <Divider sx={{ mb: 2 }}/>
+        
         {/* Form */}
         <form onSubmit={handleSubmit}>
           <Typography sx={{ textAlign: 'center', mb: 2 }}>
@@ -95,10 +97,12 @@ const Login = () => {
           />
 
           {/* Submit Button */}
-          <Button fullWidth type="submit" variant="contained"  color="primary">
+          <Button fullWidth type="submit" variant="contained"  color="primary" sx={{ mt: 3 }}>
             Iniciar sesión
           </Button>
         </form>
+        
+        <Divider sx={{ mt: 1, mb: 1 }}/>
 
         {/* Register Link */}
         <Link href="/register">
@@ -106,7 +110,6 @@ const Login = () => {
             ¿No tienes una cuenta?
           </Button>
         </Link>
-
         {/* Footer */}
         <Typography variant="body2" align="center" color="textSecondary" sx={{ mt: 4 }}>
           Banco Universitario © | 2024

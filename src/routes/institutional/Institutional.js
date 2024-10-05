@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const Institutional = () => {
   return (
     <div>
-      <Typography variant="h3">Bienvenido al Banco Universitario</Typography>
+      <Typography variant="h4">Bienvenido al Banco Universitario</Typography>
       <Typography variant="body1">
         Estamos comprometidos para brindarte los mejores servicios!...
       </Typography>
