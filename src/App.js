@@ -5,16 +5,20 @@ import { Routes, Route } from "react-router-dom";
 import Institutional from "./routes/institutional/Institutional";
 import Login from "./routes/login/Login";
 import Register from "./routes/register/Register";
+import { LocalizationProvider } from '@mui/x-date-pickers';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <CssBaseline /> {/* Optional: For consistent reset of global styles */}
-      <Routes>
-        <Route path="/" element={<Institutional />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-      </Routes>
+      <LocalizationProvider dateAdapter={AdapterDayjs}>
+        <CssBaseline /> {/* Optional: For consistent reset of global styles */}
+        <Routes>
+          <Route path="/" element={<Institutional />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+        </Routes>
+      </LocalizationProvider>
     </ThemeProvider>
   );
 }

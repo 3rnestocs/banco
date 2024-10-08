@@ -2,9 +2,7 @@ import React, { useState } from 'react';
 import { Button, Container, Box, Grid, Typography, Divider } from '@mui/material';
 import { ThemeProvider } from '@mui/system';
 import BUTextField from '../../components/BUTextField';
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { DateField } from '@mui/x-date-pickers/DateField';
+import { DatePicker } from '@mui/x-date-pickers';
 import theme from '../../theme'; // Adjust the path to your theme file
 import { Link } from 'react-router-dom';
 
@@ -99,16 +97,12 @@ const Register = () => {
                             </Grid>
                         </Grid>
 
-                        {/* Date field */}
-                        <LocalizationProvider dateAdapter={AdapterDayjs}>
-                            <DateField
-                                label="Fecha de nacimiento"
-                                value={date}
-                                format="DD-MM-YYYY"
-                                disableFuture
-                                onChange={(e) => setDate(e.target.value)}
-                            />
-                        </LocalizationProvider>
+                        {/* Date Picker Field */}
+                        <DatePicker
+                            label="Fecha de nacimiento"
+                            value={date}
+                            onChange={(newValue) => setDate(newValue)}
+                        />
 
                         {/* Email field */}
                         <BUTextField
