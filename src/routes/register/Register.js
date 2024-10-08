@@ -61,49 +61,39 @@ const Register = () => {
                         <Stack spacing={2}>
                             <Stack direction="row" spacing={2}>
                                 {/* Name field */}
-                                <Item>
-                                    {/* Name field */}
-                                    <BUTextField
-                                        fieldType="name"
-                                        value={name}
-                                        onChange={(e) => setName(e.target.value)}
-                                        required
-                                    />
-                                </Item>
+                                {/* Name field */}
+                                <BUTextField
+                                    fieldType="name"
+                                    value={name}
+                                    onChange={(e) => setName(e.target.value)}
+                                    required
+                                />
 
                                 {/* Lastname field */}
-                                <Item>
-                                    <BUTextField
-                                        fieldType="lastname"
-                                        value={lastname}
-                                        onChange={(e) => setLastname(e.target.value)}
-                                        required
-                                    />
-                                </Item>
+                                <BUTextField
+                                    fieldType="lastname"
+                                    value={lastname}
+                                    onChange={(e) => setLastname(e.target.value)}
+                                    required
+                                />
                             </Stack>
 
                             <Stack direction="row" spacing={2}>
                                 {/* Document field */}
-                                <Item>
-                                    {/* Document field */}
-                                    <BUTextField
-                                        fieldType="document"
-                                        value={document}
-                                        onChange={(e) => setDocument(e.target.value)}
-                                        required
-                                    />
-                                </Item>
+                                <BUTextField
+                                    fieldType="document"
+                                    value={document}
+                                    onChange={(e) => setDocument(e.target.value)}
+                                    required
+                                />
 
                                 {/* Phone field */}
-                                <Item>
-                                    {/* Phone field */}
-                                    <BUTextField
-                                        fieldType="phone"
-                                        value={phone}
-                                        onChange={(e) => setPhone(e.target.value)}
-                                        required
-                                    />
-                                </Item>
+                                <BUTextField
+                                    fieldType="phone"
+                                    value={phone}
+                                    onChange={(e) => setPhone(e.target.value)}
+                                    required
+                                />
                             </Stack>
 
                             {/* Date Picker Field */}
