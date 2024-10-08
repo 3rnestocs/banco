@@ -1,18 +1,34 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { routesConfig } from '../routesConfig';
 
 const DynamicRoutes = () => {
-    const routes = routesConfig;
+    const isAuthenticated = true; // Replace with real authentication logic
 
-  return (
-    <Routes>
-      {routes.map((route, index) => (
-        <Route key={index} path={route.path} element={route.component} />
-      ))}
+    const routesConfig = [
+        {
+            path: "/",
+            component: <Institutional />,
+        },
+        {
+            path: "/login",
+            component: <Login />,
+        },
+        {
+            path: "/register",
+            component: <Register />,
 
-    </Routes>
-  );
+            // element: isAuthenticated ? <Dashboard /> : <Redirect to="/login" />,
+        },
+    ];
+
+    return (
+        <Routes>
+            {routesConfig.map((route, index) => (
+                <Route key={index} path={route.path} element={route.component} />
+            ))}
+
+        </Routes>
+    );
 };
 
 export default DynamicRoutes;
