@@ -4,6 +4,7 @@ import theme from './theme'; // Import the custom theme
 import { Routes, Route} from "react-router-dom";
 import Institutional from "./routes/institutional/Institutional";
 import Login from "./routes/login/Login";
+import Login from "./routes/register/Register";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Institutional />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
       </ThemeProvider>
   );
