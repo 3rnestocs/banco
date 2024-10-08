@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Container, Box, Grid, Typography, Divider, TextField } from '@mui/material';
+import { Button, Container, Box, Typography, Divider, Stack } from '@mui/material';
 import { ThemeProvider } from '@mui/system';
 import BUTextField from '../../components/BUTextField';
 import theme from '../../theme'; // Adjust the path to your theme file
@@ -58,103 +58,97 @@ const Register = () => {
                     <Divider sx={{ mb: 2 }} />
 
                     <form onSubmit={handleSubmit}>
-                        <Grid container spacing={2}>
-                            {/* Name field */}
-                            <Grid item xs={6} sx={{ padding: 0 }}>
+                        <Stack spacing={2}>
+                            <Stack direction="row" spacing={2}>
                                 {/* Name field */}
-                                <BUTextField
-                                    fieldType="name"
-                                    value={name}
-                                    onChange={(e) => setName(e.target.value)}
-                                    required
-                                />
-                            </Grid>
+                                <Item>
+                                    {/* Name field */}
+                                    <BUTextField
+                                        fieldType="name"
+                                        value={name}
+                                        onChange={(e) => setName(e.target.value)}
+                                        required
+                                    />
+                                </Item>
 
-                            {/* Lastname field */}
-                            <Grid item xs={6} sx={{ padding: 0 }}>
-                                <BUTextField
-                                    fieldType="lastname"
-                                    value={lastname}
-                                    onChange={(e) => setLastname(e.target.value)}
-                                    required
-                                />
-                            </Grid>
+                                {/* Lastname field */}
+                                <Item>
+                                    <BUTextField
+                                        fieldType="lastname"
+                                        value={lastname}
+                                        onChange={(e) => setLastname(e.target.value)}
+                                        required
+                                    />
+                                </Item>
+                            </Stack>
 
-                            {/* Document field */}
-                            <Grid item xs={6} sx={{ padding: 0 }}>
+                            <Stack direction="row" spacing={2}>
                                 {/* Document field */}
-                                <BUTextField
-                                    fieldType="document"
-                                    value={document}
-                                    onChange={(e) => setDocument(e.target.value)}
-                                    required
-                                />
-                            </Grid>
+                                <Item>
+                                    {/* Document field */}
+                                    <BUTextField
+                                        fieldType="document"
+                                        value={document}
+                                        onChange={(e) => setDocument(e.target.value)}
+                                        required
+                                    />
+                                </Item>
 
-                            {/* Phone field */}
-                            <Grid item xs={6} sx={{ padding: 0 }}>
                                 {/* Phone field */}
-                                <BUTextField
-                                    fieldType="phone"
-                                    value={phone}
-                                    onChange={(e) => setPhone(e.target.value)}
-                                    required
-                                />
-                            </Grid>
+                                <Item>
+                                    {/* Phone field */}
+                                    <BUTextField
+                                        fieldType="phone"
+                                        value={phone}
+                                        onChange={(e) => setPhone(e.target.value)}
+                                        required
+                                    />
+                                </Item>
+                            </Stack>
 
                             {/* Date Picker Field */}
-                            <Grid item xs={12} sx={{ padding: 0 }}>
-                                <DatePicker
-                                    label="Fecha de nacimiento"
-                                    value={date}
-                                    onChange={(newValue) => setDate(newValue)}
-                                    sx={{
-                                        width: "100%",
-                                    }}
-                                />
-                            </Grid>
+                            <DatePicker
+                                label="Fecha de nacimiento"
+                                value={date}
+                                onChange={(newValue) => setDate(newValue)}
+                                sx={{
+                                    width: "100%",
+                                }}
+                            />
 
                             {/* Email field */}
-                            <Grid item xs={12} sx={{ padding: 0 }}>
-                                <BUTextField
-                                    fieldType="email"
-                                    value={email}
-                                    onChange={(e) => setEmail(e.target.value)}
-                                    required
-                                />
-                            </Grid>
+                            <BUTextField
+                                fieldType="email"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                required
+                            />
 
                             {/* Password field */}
-                            <Grid item xs={12} sx={{ padding: 0 }}>
-                                <BUTextField
-                                    fieldType="password"
-                                    value={password}
-                                    onChange={(e) => setPassword(e.target.value)}
-                                    required
-                                />
-                            </Grid>
+                            <BUTextField
+                                fieldType="password"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                                required
+                            />
 
                             {/* Confirm password with custom validation */}
-                            <Grid item xs={12} sx={{ padding: 0 }}>
-                                <BUTextField
-                                    fieldType="confirmPassword"
-                                    value={confirmPassword}
-                                    onChange={(e) => setConfirmPassword(e.target.value)}
-                                    required
-                                    customValidationFn={(value) => ({
-                                        isValid: value === password,
-                                        message: value !== password ? 'Las contraseñas no coinciden' : '',
-                                    })}
-                                />
-                            </Grid>
+                            <BUTextField
+                                fieldType="confirmPassword"
+                                value={confirmPassword}
+                                onChange={(e) => setConfirmPassword(e.target.value)}
+                                required
+                                customValidationFn={(value) => ({
+                                    isValid: value === password,
+                                    message: value !== password ? 'Las contraseñas no coinciden' : '',
+                                })}
+                            />
 
                             {/* Register button */}
-                            <Grid item xs={12} sx={{ padding: 0 }}>
-                                <Button type="submit" variant="contained" color="primary" sx={{ mt: 4 }}>
-                                    Registrarse
-                                </Button>
-                            </Grid>
-                        </Grid>
+                            <Button type="submit" variant="contained" color="primary" sx={{ mt: 4 }}>
+                                Registrarse
+                            </Button>
+                        </Stack>
                     </form>
 
                     <Divider sx={{ mt: 3, mb: 1 }} />
