@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Button, Container, Box, Grid, Typography, Divider } from '@mui/material';
 import { ThemeProvider } from '@mui/system';
 import BUTextField from '../../components/BUTextField';
+import { DateField } from '@mui/x-date-pickers/DateField';
 import theme from '../../theme'; // Adjust the path to your theme file
 import { Link } from 'react-router-dom';
 
@@ -97,11 +98,12 @@ const Register = () => {
                         </Grid>
 
                         {/* Date field */}
-                        <BUTextField
-                            fieldType="date"
+                        <DateField
+                            label="Fecha de nacimiento"
                             value={date}
+                            format="DD-MM-YYYY"
+                            disableFuture 
                             onChange={(e) => setDate(e.target.value)}
-                            required
                         />
 
                         {/* Email field */}

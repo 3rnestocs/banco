@@ -17,7 +17,6 @@ const BUTextField = ({
     const [helperText, setHelperText] = useState('');
     const [isTyping, setIsTyping] = useState(false);
     const [showPassword, setShowPassword] = useState(false); // To toggle password visibility
-    const inputLabelProps = fieldType === 'date' ? { shrink: true } : {}; // Shrink date label   
 
     // Debounce user typing detection
     useEffect(() => {
@@ -78,8 +77,6 @@ const BUTextField = ({
                 return 'Correo electrónico';
             case 'password':
                 return 'Contraseña';
-            case 'date':
-                return 'Fecha de nacimiento';
             case 'document':
                 return 'Número de documento';
             case 'phone':
@@ -99,8 +96,6 @@ const BUTextField = ({
                 return 'email';
             case 'password':
                 return showPassword ? 'text' : 'password';
-            case 'date':
-                return 'date';
             case 'document':
                 return 'number';
             case 'phone':
