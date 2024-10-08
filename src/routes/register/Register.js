@@ -35,14 +35,15 @@ const Register = () => {
                 <Container
                     maxWidth="sm"
                     sx={{
-                        p: 8,
+                        // paddingLeft: 8,
+                        // paddingRight: 8,
                         boxShadow: 3,
                         borderRadius: 2,
                         backgroundColor: '#fff',
                     }}
                 >
                     {/* Logo Section */}
-                    <Box sx={{ textAlign: 'center', mb: 2, mt: 3 }}>
+                    <Box sx={{ textAlign: 'center', mb: 2 }}>
                         <img
                             src="https://3rnestocs.github.io/banco/logo.png"
                             alt="Banco Universitario"
