@@ -60,7 +60,7 @@ const BUTextField = ({
                 default:
                     if (required && value.trim() === '') {
                         setError(true);
-                        setHelperText(`${getDefaultLabel(type)} es obligatorio`);
+                        setHelperText(`${getDefaultLabel(fieldType)} es obligatorio`);
                     } else {
                         setError(false);
                         setHelperText('');
