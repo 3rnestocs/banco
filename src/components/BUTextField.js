@@ -123,22 +123,6 @@ const BUTextField = ({
             error={error}
             helperText={helperText}
             required={required}
-            InputProps={{
-                // Add the visibility toggle for password fields
-                ...((fieldType === 'password' || fieldType === 'confirmPassword')  && {
-                    endAdornment: (
-                        <InputAdornment position="end">
-                            <IconButton
-                                aria-label="toggle password visibility"
-                                onClick={() => setShowPassword(!showPassword)}
-                                edge="end"
-                            >
-                                {showPassword ? <VisibilityOff /> : <Visibility />}
-                            </IconButton>
-                        </InputAdornment>
-                    ),
-                }),
-            }}
             {...props}
         />
     );
