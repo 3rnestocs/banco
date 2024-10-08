@@ -120,7 +120,6 @@ const BUTextField = ({
             error={error}
             helperText={helperText}
             required={required}
-            InputLabelProps={inputLabelProps} // Add InputLabelProps conditionally
             InputProps={{
                 // Add the visibility toggle for password fields
                 ...(fieldType === 'password' && {
