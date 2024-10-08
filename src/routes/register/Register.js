@@ -99,16 +99,12 @@ const Register = () => {
 
                         {/* Date Picker Field */}
                         <DatePicker
+                            fullWidth
                             label="Fecha de nacimiento"
                             value={date}
                             onChange={(newValue) => setDate(newValue)}
+                            sx={{ mt: 1 }}
                         />
-                        {/* <DatePicker
-                            label="Fecha de nacimiento"
-                            value={date}
-                            onChange={(newValue) => setDate(newValue)}
-                            renderInput={(params) => <TextField {...params} fullWidth margin="normal" required />}
-                        /> */}
 
                         {/* Email field */}
                         <BUTextField
@@ -128,7 +124,7 @@ const Register = () => {
 
                         {/* Confirm password with custom validation */}
                         <BUTextField
-                            fieldType="password"
+                            fieldType="confirmPassword"
                             value={confirmPassword}
                             onChange={(e) => setConfirmPassword(e.target.value)}
                             required

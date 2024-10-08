@@ -48,7 +48,7 @@ const BUTextField = ({
                     setError(!emailPattern.test(value));
                     setHelperText(!emailPattern.test(value) ? 'Correo electrónico inválido' : '');
                     break;
-                case 'password':
+                case 'password', 'confirmPassword':
                     setError(value.length < 6); // Simple password length validation
                     setHelperText(value.length < 6 ? 'La contraseña debe tener al menos 6 caracteres' : '');
                     break;
@@ -77,6 +77,8 @@ const BUTextField = ({
                 return 'Correo electrónico';
             case 'password':
                 return 'Contraseña';
+            case 'confirmPassword':
+                return 'Confirmar contraseña';
             case 'document':
                 return 'Número de documento';
             case 'phone':
@@ -94,7 +96,7 @@ const BUTextField = ({
         switch (type) {
             case 'email':
                 return 'email';
-            case 'password':
+            case 'password', 'confirmPassword':
                 return showPassword ? 'text' : 'password';
             case 'document':
                 return 'number';
@@ -122,7 +124,7 @@ const BUTextField = ({
             required={required}
             InputProps={{
                 // Add the visibility toggle for password fields
-                ...(fieldType === 'password' && {
+                ...((fieldType === 'password' || fieldType === 'confirmPassword')  && {
                     endAdornment: (
                         <InputAdornment position="end">
                             <IconButton
