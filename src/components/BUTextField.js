@@ -74,19 +74,19 @@ const BUTextField = ({
     const getDefaultLabel = (type) => {
         switch (type) {
             case 'email':
-                return 'Correo electrónico*';
+                return 'Correo electrónico';
             case 'password':
-                return 'Contraseña*';
+                return 'Contraseña';
             case 'date':
-                return 'Fecha de nacimiento*';
+                return 'Fecha de nacimiento';
             case 'document':
-                return 'Número de documento*';
+                return 'Número de documento';
             case 'phone':
-                return 'Número de teléfono*';
+                return 'Número de teléfono';
             case 'name':
-                return 'Nombre*';
+                return 'Nombre';
             case 'lastname':
-                return 'Apellido*';
+                return 'Apellido';
             default:
                 return 'Campo';
         }

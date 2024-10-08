@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { Button, Container, Box, Grid, Typography, Divider, Link } from '@mui/material';
+import { Button, Container, Box, Grid, Typography, Divider } from '@mui/material';
 import { ThemeProvider } from '@mui/system';
 import BUTextField from '../../components/BUTextField';
 import theme from '../../theme'; // Adjust the path to your theme file
+import { Link } from 'react-router-dom';
 
 const Register = () => {
     const [name, setName] = useState('');
@@ -30,9 +31,27 @@ const Register = () => {
                     backgroundColor: '#EEF2F6',
                 }}
             >
-                <Container maxWidth="sm" sx={{ p: 8, boxShadow: 3, borderRadius: 2, backgroundColor: '#fff' }}>
+                <Container
+                    maxWidth="sm"
+                    sx={{
+                        p: 8,
+                        boxShadow: 3,
+                        borderRadius: 2,
+                        backgroundColor: '#fff',
+                    }}
+                >
+                    {/* Logo Section */}
+                    <Box sx={{ textAlign: 'center', mb: 2, mt: 3 }}>
+                        <img
+                            src="https://3rnestocs.github.io/banco/logo.png"
+                            alt="Banco Universitario"
+                            style={{ width: '50%' }}
+                        />
+                    </Box>
+
+                    {/* Heading */}
                     <Typography variant="h5" align="center" sx={{ mb: 2 }}>
-                        Registro
+                        Banca en línea
                     </Typography>
 
                     <Divider sx={{ mb: 2 }} />

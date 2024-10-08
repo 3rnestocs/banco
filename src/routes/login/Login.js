@@ -7,12 +7,12 @@ import {
   Typography,
   InputAdornment,
   IconButton,
-  Link,
   Divider
 } from '@mui/material';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 import { ThemeProvider } from '@mui/material/styles';
 import theme from '../../theme'; // Adjust the path to your theme file
+import { Link } from 'react-router-dom';
 
 const Login = () => {
   const [email, setEmail] = useState('');
