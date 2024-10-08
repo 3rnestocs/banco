@@ -58,7 +58,7 @@ const Register = () => {
                     <Divider sx={{ mb: 2 }} />
 
                     <form onSubmit={handleSubmit}>
-                        <Stack spacing={2}>
+                        <Stack spacing={3}>
                             <Stack direction="row" spacing={2}>
                                 {/* Name field */}
                                 {/* Name field */}

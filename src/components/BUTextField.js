@@ -96,7 +96,8 @@ const BUTextField = ({
         switch (type) {
             case 'email':
                 return 'email';
-            case 'password', 'confirmPassword':
+            case 'password':
+            case 'confirmPassword':
                 return showPassword ? 'text' : 'password';
             case 'document':
                 return 'number';
