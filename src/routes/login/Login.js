@@ -4,12 +4,10 @@ import {
   Container,
   Button,
   Typography,
-  InputAdornment,
-  IconButton,
+  Stack,
   Divider
 } from '@mui/material';
 import BUTextField from '../../components/BUTextField';
-import { Visibility, VisibilityOff } from '@mui/icons-material';
 import { ThemeProvider } from '@mui/material/styles';
 import theme from '../../theme'; // Adjust the path to your theme file
 import { Link } from 'react-router-dom';
@@ -17,15 +15,10 @@ import { Link } from 'react-router-dom';
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Login submitted', { email, password });
-  };
-
-  const handleClickShowPassword = () => {
-    setShowPassword(!showPassword);
   };
 
   return (
