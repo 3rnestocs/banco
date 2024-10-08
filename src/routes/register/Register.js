@@ -108,13 +108,9 @@ const Register = () => {
                                     label="Fecha de nacimiento"
                                     value={date}
                                     onChange={(newValue) => setDate(newValue)}
-                                    renderInput={(params) => (
-                                        <TextField
-                                            {...params}
-                                            fullWidth
-                                            sx={{ width: '100%' }} // Ensuring full width inside its parent
-                                        />
-                                    )}
+                                    sx={{
+                                        width: "100%",
+                                    }}
                                 />
                             </Grid>
 
