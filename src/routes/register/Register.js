@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Button, Container, Box, Grid, Typography, Divider } from '@mui/material';
 import { ThemeProvider } from '@mui/system';
 import BUTextField from '../../components/BUTextField';
-import theme from './theme';
+import theme from '../../theme'; // Adjust the path to your theme file
 
 const Register = () => {
     const [name, setName] = useState('');
