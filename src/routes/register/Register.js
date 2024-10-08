@@ -58,7 +58,7 @@ const Register = () => {
                     <Divider sx={{ mb: 2 }} />
 
                     <form onSubmit={handleSubmit}>
-                        <Grid container>
+                        <Grid container spacing={1}>
                             <Grid item xs={6}>
                                 {/* Name field */}
                                 <BUTextField
@@ -95,49 +95,57 @@ const Register = () => {
                                     required
                                 />
                             </Grid>
+
+                            {/* Date Picker Field */}
+                            <Grid item xs={12}>
+                                <DatePicker
+                                    fullWidth
+                                    label="Fecha de nacimiento"
+                                    value={date}
+                                    onChange={(newValue) => setDate(newValue)}
+                                />
+                            </Grid>
+
+                            {/* Email field */}
+                            <Grid item xs={12}>
+                                <BUTextField
+                                    fieldType="email"
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                    required
+                                />
+                            </Grid>
+
+                            {/* Password field */}
+                            <Grid item xs={12}>
+                                <BUTextField
+                                    fieldType="password"
+                                    value={password}
+                                    onChange={(e) => setPassword(e.target.value)}
+                                    required
+                                />
+                            </Grid>
+
+                            {/* Confirm password with custom validation */}
+                            <Grid item xs={12}>
+                                <BUTextField
+                                    fieldType="confirmPassword"
+                                    value={confirmPassword}
+                                    onChange={(e) => setConfirmPassword(e.target.value)}
+                                    required
+                                    customValidationFn={(value) => ({
+                                        isValid: value === password,
+                                        message: value !== password ? 'Las contraseñas no coinciden' : '',
+                                    })}
+                                />
+                            </Grid>
+
+                            <Grid item xs={12}>
+                                <Button type="submit" variant="contained" color="primary" sx={{ mt: 4 }}>
+                                    Registrarse
+                                </Button>
+                            </Grid>
                         </Grid>
-
-                        {/* Date Picker Field */}
-                        <DatePicker
-                            fullWidth
-                            label="Fecha de nacimiento"
-                            value={date}
-                            onChange={(newValue) => setDate(newValue)}
-                            sx={{ mt: 2 }}
-                            slotProps={{ textField: { fullWidth: true } }}
-                        />
-
-                        {/* Email field */}
-                        <BUTextField
-                            fieldType="email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            required
-                        />
-
-                        {/* Password field */}
-                        <BUTextField
-                            fieldType="password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                            required
-                        />
-
-                        {/* Confirm password with custom validation */}
-                        <BUTextField
-                            fieldType="confirmPassword"
-                            value={confirmPassword}
-                            onChange={(e) => setConfirmPassword(e.target.value)}
-                            required
-                            customValidationFn={(value) => ({
-                                isValid: value === password,
-                                message: value !== password ? 'Las contraseñas no coinciden' : '',
-                            })}
-                        />
-
-                        <Button fullWidth type="submit" variant="contained" color="primary" sx={{ mt: 4 }}>
-                            Registrarse
-                        </Button>
                     </form>
 
                     <Divider sx={{ mt: 3, mb: 1 }} />
@@ -155,7 +163,7 @@ const Register = () => {
                     </Typography>
                 </Container>
             </Box>
-        </ThemeProvider>
+        </ThemeProvider >
     );
 };
 
