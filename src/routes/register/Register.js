@@ -59,7 +59,7 @@ const Register = () => {
                     <form onSubmit={handleSubmit}>
                         <Stack spacing={2}>
                             <Typography sx={{ textAlign: 'center' }}>
-                                Ingresa tus credenciales para continuar
+                                Ingresa tus datos para unírtenos
                             </Typography>
 
                             <Stack direction="row" spacing={2}>

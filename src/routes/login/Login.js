@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import {
   Box,
   Container,
-  TextField,
   Button,
   Typography,
   InputAdornment,
   IconButton,
   Divider
 } from '@mui/material';
+import BUTextField from '../../components/BUTextField';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 import { ThemeProvider } from '@mui/material/styles';
 import theme from '../../theme'; // Adjust the path to your theme file
@@ -42,7 +42,6 @@ const Login = () => {
         <Container
           maxWidth="sm"
           sx={{
-            p: 8,
             boxShadow: 3,
             borderRadius: 2,
             backgroundColor: '#fff',
@@ -66,48 +65,32 @@ const Login = () => {
 
           {/* Form */}
           <form onSubmit={handleSubmit}>
-            <Typography sx={{ textAlign: 'center' }}>
-              Ingresa tus credenciales para continuar
-            </Typography>
+            <Stack spacing={2}>
+              <Typography sx={{ textAlign: 'center' }}>
+                Ingresa tus credenciales para continuar
+              </Typography>
 
-            {/* Email Field */}
-            <TextField
-              fullWidth
-              margin="normal"
-              label="Correo electrónico"
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
+              {/* Email field */}
+              <BUTextField
+                fieldType="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
 
-            {/* Password Field */}
-            <TextField
-              fullWidth
-              margin="normal"
-              label="Contraseña"
-              type={showPassword ? 'text' : 'password'}
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-              InputProps={{
-                endAdornment: (
-                  <InputAdornment position="end">
-                    <IconButton
-                      aria-label="toggle password visibility"
-                      onClick={handleClickShowPassword}
-                    >
-                      {showPassword ? <VisibilityOff /> : <Visibility />}
-                    </IconButton>
-                  </InputAdornment>
-                ),
-              }}
-            />
+              {/* Password field */}
+              <BUTextField
+                fieldType="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
 
-            {/* Submit Button */}
-            <Button fullWidth type="submit" variant="contained" color="primary" sx={{ mt: 4 }}>
-              Iniciar sesión
-            </Button>
+              {/* Submit Button */}
+              <Button fullWidth type="submit" variant="contained" color="primary" sx={{ mt: 4 }}>
+                Iniciar sesión
+              </Button>
+            </Stack>
           </form>
 
           <Divider sx={{ mt: 3, mb: 1 }} />
@@ -120,7 +103,7 @@ const Login = () => {
           </Link>
 
           {/* Footer */}
-          <Typography variant="body2" align="center" color="textSecondary" sx={{ mt: 4 }}>
+          <Typography variant="body2" align="center" color="textSecondary" sx={{ mt: 3 }}>
             Banco Universitario © | 2024
           </Typography>
         </Container>
