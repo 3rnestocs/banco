@@ -1,5 +1,8 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
+import Institutional from '../routes/institutional/Institutional';
+import Login from '../routes/login/Login';
+import Register from '../routes/register/Register';
 
 const DynamicRoutes = () => {
     const isAuthenticated = true; // Replace with real authentication logic
