@@ -41,7 +41,7 @@ const Register = () => {
                     }}
                 >
                     {/* Logo Section */}
-                    <Box sx={{ textAlign: 'center', mb: 1, mt: 2 }}>
+                    <Box sx={{ textAlign: 'center', mb: 1, mt: 4 }}>
                         <img
                             src="https://3rnestocs.github.io/banco/logo.png"
                             alt="Banco Universitario"
@@ -154,7 +154,7 @@ const Register = () => {
                     </Link>
 
                     {/* Footer */}
-                    <Typography variant="body2" align="center" color="textSecondary" sx={{ mt: 2, mb: 2 }}>
+                    <Typography variant="body2" align="center" color="textSecondary" sx={{ mt: 2, mb: 3 }}>
                         Banco Universitario © | 2024
                     </Typography>
                 </Container>
