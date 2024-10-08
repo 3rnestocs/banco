@@ -41,7 +41,7 @@ const Register = () => {
                     }}
                 >
                     {/* Logo Section */}
-                    <Box sx={{ textAlign: 'center', mb: 1, mt: 1 }}>
+                    <Box sx={{ textAlign: 'center', mb: 1, mt: 2 }}>
                         <img
                             src="https://3rnestocs.github.io/banco/logo.png"
                             alt="Banco Universitario"
@@ -57,7 +57,11 @@ const Register = () => {
                     <Divider sx={{ mb: 2 }} />
 
                     <form onSubmit={handleSubmit}>
-                        <Stack spacing={3}>
+                        <Stack spacing={2}>
+                            <Typography sx={{ textAlign: 'center' }}>
+                                Ingresa tus credenciales para continuar
+                            </Typography>
+
                             <Stack direction="row" spacing={2}>
                                 {/* Name field */}
                                 {/* Name field */}
@@ -150,7 +154,7 @@ const Register = () => {
                     </Link>
 
                     {/* Footer */}
-                    <Typography variant="body2" align="center" color="textSecondary" sx={{ mt: 4, mb: 1 }}>
+                    <Typography variant="body2" align="center" color="textSecondary" sx={{ mt: 2, mb: 2 }}>
                         Banco Universitario © | 2024
                     </Typography>
                 </Container>
