@@ -58,7 +58,7 @@ const Register = () => {
                     <Divider sx={{ mb: 2 }} />
 
                     <form onSubmit={handleSubmit}>
-                        <Grid container spacing={2}>
+                        <Grid container>
                             <Grid item xs={6}>
                                 {/* Name field */}
                                 <BUTextField
@@ -103,7 +103,8 @@ const Register = () => {
                             label="Fecha de nacimiento"
                             value={date}
                             onChange={(newValue) => setDate(newValue)}
-                            sx={{ mt: 1 }}
+                            sx={{ mt: 2 }}
+                            slotProps={{ textField: { fullWidth: true } }}
                         />
 
                         {/* Email field */}
