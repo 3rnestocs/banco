@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Container, Box, Grid, Typography, Divider } from '@mui/material';
+import { Button, Container, Box, Grid, Typography, Divider, TextField } from '@mui/material';
 import { ThemeProvider } from '@mui/system';
 import BUTextField from '../../components/BUTextField';
 import theme from '../../theme'; // Adjust the path to your theme file
@@ -59,6 +59,7 @@ const Register = () => {
 
                     <form onSubmit={handleSubmit}>
                         <Grid container spacing={1}>
+                            {/* Name field */}
                             <Grid item xs={6}>
                                 {/* Name field */}
                                 <BUTextField
@@ -68,6 +69,8 @@ const Register = () => {
                                     required
                                 />
                             </Grid>
+
+                            {/* Lastname field */}
                             <Grid item xs={6}>
                                 <BUTextField
                                     fieldType="lastname"
@@ -77,6 +80,7 @@ const Register = () => {
                                 />
                             </Grid>
 
+                            {/* Document field */}
                             <Grid item xs={6}>
                                 {/* Document field */}
                                 <BUTextField
@@ -86,6 +90,8 @@ const Register = () => {
                                     required
                                 />
                             </Grid>
+
+                            {/* Phone field */}
                             <Grid item xs={6}>
                                 {/* Phone field */}
                                 <BUTextField
@@ -99,10 +105,10 @@ const Register = () => {
                             {/* Date Picker Field */}
                             <Grid item xs={12}>
                                 <DatePicker
-                                    fullWidth
                                     label="Fecha de nacimiento"
                                     value={date}
                                     onChange={(newValue) => setDate(newValue)}
+                                    renderInput={(params) => <TextField {...params} fullWidth />}
                                 />
                             </Grid>
 
@@ -140,6 +146,7 @@ const Register = () => {
                                 />
                             </Grid>
 
+                            {/* Register button */}
                             <Grid item xs={12}>
                                 <Button type="submit" variant="contained" color="primary" sx={{ mt: 4 }}>
                                     Registrarse
