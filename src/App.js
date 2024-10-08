@@ -4,7 +4,7 @@ import theme from './theme'; // Import the custom theme
 import { Routes, Route} from "react-router-dom";
 import Institutional from "./routes/institutional/Institutional";
 import Login from "./routes/login/Login";
-import Login from "./routes/register/Register";
+import Register from "./routes/register/Register";
 
 function App() {
   return (
