@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
-import { Button, Container, Box, Grid, Typography, Divider } from '@mui/material';
+import { Button, Container, Box, Grid, Typography, Divider, TextField } from '@mui/material';
 import { ThemeProvider } from '@mui/system';
 import BUTextField from '../../components/BUTextField';
-import { DatePicker } from '@mui/x-date-pickers';
 import theme from '../../theme'; // Adjust the path to your theme file
 import { Link } from 'react-router-dom';
+import { DatePicker } from '@mui/x-date-pickers';
+import dayjs from 'dayjs';
 
 const Register = () => {
     const [name, setName] = useState('');
     const [lastname, setLastname] = useState('');
     const [document, setDocument] = useState('');
     const [phone, setPhone] = useState('');
-    const [date, setDate] = useState('');
+    const [date, setDate] = useState(dayjs()); // or use null
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
@@ -98,10 +99,16 @@ const Register = () => {
                         </Grid>
 
                         {/* Date Picker Field */}
+                        {/* <DatePicker
+                            label="Fecha de nacimiento"
+                            value={date}
+                            onChange={(newValue) => setDate(newValue)}
+                        /> */}
                         <DatePicker
                             label="Fecha de nacimiento"
                             value={date}
                             onChange={(newValue) => setDate(newValue)}
+                            renderInput={(params) => <TextField {...params} fullWidth margin="normal" required />}
                         />
 
                         {/* Email field */}
