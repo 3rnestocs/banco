@@ -121,7 +121,7 @@ const Register = () => {
                     <Divider sx={{ mt: 3, mb: 1 }} />
 
                     {/* Login Link */}
-                    <Link href="/login">
+                    <Link to="/login">
                         <Button fullWidth variant="text" color="primary">
                             ¿Ya tienes una cuenta?
                         </Button>
