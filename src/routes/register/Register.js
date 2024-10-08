@@ -58,9 +58,9 @@ const Register = () => {
                     <Divider sx={{ mb: 2 }} />
 
                     <form onSubmit={handleSubmit}>
-                        <Grid container spacing={1}>
+                        <Grid container spacing={2}>
                             {/* Name field */}
-                            <Grid item xs={6}>
+                            <Grid item xs={6} sx={{ padding: 0 }}>
                                 {/* Name field */}
                                 <BUTextField
                                     fieldType="name"
@@ -71,7 +71,7 @@ const Register = () => {
                             </Grid>
 
                             {/* Lastname field */}
-                            <Grid item xs={6}>
+                            <Grid item xs={6} sx={{ padding: 0 }}>
                                 <BUTextField
                                     fieldType="lastname"
                                     value={lastname}
@@ -81,7 +81,7 @@ const Register = () => {
                             </Grid>
 
                             {/* Document field */}
-                            <Grid item xs={6}>
+                            <Grid item xs={6} sx={{ padding: 0 }}>
                                 {/* Document field */}
                                 <BUTextField
                                     fieldType="document"
@@ -92,7 +92,7 @@ const Register = () => {
                             </Grid>
 
                             {/* Phone field */}
-                            <Grid item xs={6}>
+                            <Grid item xs={6} sx={{ padding: 0 }}>
                                 {/* Phone field */}
                                 <BUTextField
                                     fieldType="phone"
@@ -103,17 +103,23 @@ const Register = () => {
                             </Grid>
 
                             {/* Date Picker Field */}
-                            <Grid item xs={12}>
+                            <Grid item xs={12} sx={{ padding: 0 }}>
                                 <DatePicker
                                     label="Fecha de nacimiento"
                                     value={date}
                                     onChange={(newValue) => setDate(newValue)}
-                                    renderInput={(params) => <TextField {...params} fullWidth />}
+                                    renderInput={(params) => (
+                                        <TextField
+                                            {...params}
+                                            fullWidth
+                                            sx={{ width: '100%' }} // Ensuring full width inside its parent
+                                        />
+                                    )}
                                 />
                             </Grid>
 
                             {/* Email field */}
-                            <Grid item xs={12}>
+                            <Grid item xs={12} sx={{ padding: 0 }}>
                                 <BUTextField
                                     fieldType="email"
                                     value={email}
@@ -123,7 +129,7 @@ const Register = () => {
                             </Grid>
 
                             {/* Password field */}
-                            <Grid item xs={12}>
+                            <Grid item xs={12} sx={{ padding: 0 }}>
                                 <BUTextField
                                     fieldType="password"
                                     value={password}
@@ -133,7 +139,7 @@ const Register = () => {
                             </Grid>
 
                             {/* Confirm password with custom validation */}
-                            <Grid item xs={12}>
+                            <Grid item xs={12} sx={{ padding: 0 }}>
                                 <BUTextField
                                     fieldType="confirmPassword"
                                     value={confirmPassword}
@@ -147,7 +153,7 @@ const Register = () => {
                             </Grid>
 
                             {/* Register button */}
-                            <Grid item xs={12}>
+                            <Grid item xs={12} sx={{ padding: 0 }}>
                                 <Button type="submit" variant="contained" color="primary" sx={{ mt: 4 }}>
                                     Registrarse
                                 </Button>
