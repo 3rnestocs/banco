@@ -22,19 +22,19 @@ const BUNavbar = ({ serviciosRef, identidadRef, contactoRef }) => {
           </button>
         </div>
         <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav ms-auto me-auto">
-          <li className="nav-item">
+          <ul className="navbar-nav ms-auto">
+            <li className="nav-item custom-nav-item">
               <Button onClick={() => handleScroll(serviciosRef)}>Servicios</Button>
             </li>
-            <li className="nav-item">
+            <li className="nav-item custom-nav-item">
               <Button onClick={() => handleScroll(identidadRef)}>Conócenos</Button>
             </li>
-            <li className="nav-item">
+            <li className="nav-item custom-nav-item">
               <Button onClick={() => handleScroll(contactoRef)}>Contacto</Button>
             </li>
           </ul>
           <Link to="/login">
-            <button className="btn btn-primary rounded-4 me-4" type="button">
+            <button className="btn btn-primary rounded-4 me-4 custom-banking-btn" type="button">
               Banca en Línea
             </button>
           </Link>

@@ -9,40 +9,41 @@ import objetivo3 from "../../assets/img/objetivos/obj3.png";
 import objetivo4 from "../../assets/img/objetivos/obj4.png";
 import objetivo5 from "../../assets/img/objetivos/obj5.png";
 import objResponsive from "../../assets/img/objetivos/objResponsive.png";
+import BUHeaderTitle, { HeaderTypes } from '../BUHeaderTitle';
 
 const Identidad = forwardRef((props, ref) => {
   return (
-    <div id="container-identidad" className="container-fluid m-0" ref={ref}>
-      <h2 className="text-light text-center m-3 text-decoration-underline">
-        Identidad Empresarial
-      </h2>
-      <div className="container text-center">
-        <img className="d-none d-lg-block img-fluid" src={imgMisio} alt="Misión" />
-        <img className="d-none d-lg-block img-fluid" src={imgVisio} alt="Visión" />
-        <img
-          className="d-lg-none d-sm-block d-md-block img-fluid"
-          src={groupMision}
-          alt="Grupo Misión"
-        />
-        <img
-          className="d-lg-none d-sm-block d-md-block img-fluid"
-          src={groupVision}
-          alt="Grupo Visión"
-        />
+    <div id="container-identidad" className="container-fluid text-center" ref={ref}>
+      {/* Header Title */}
+      <BUHeaderTitle text="IDENTIDAD EMPRESARIAL" type={HeaderTypes.WHITE} />
+      
+      {/* Container for Misión and Visión images */}
+      <div className="container d-flex flex-column align-items-center">
+        <img className="d-none d-lg-block img-fluid mb-3" src={imgMisio} alt="Misión" />
+        <img className="d-none d-lg-block img-fluid mb-3" src={imgVisio} alt="Visión" />
+        <img className="d-lg-none d-sm-block d-md-block img-fluid mb-3" src={groupMision} alt="Grupo Misión" />
+        <img className="d-lg-none d-sm-block d-md-block img-fluid mb-3" src={groupVision} alt="Grupo Visión" />
       </div>
-      <h2 className="text-light text-center fw-bold m-3">Objetivos</h2>
-      <div className="d-none d-lg-block container text-center mb-3">
-        <img className="img-fluid" src={objetivo1} alt="Objetivo 1" />
-        <img className="img-fluid" src={objetivo2} alt="Objetivo 2" />
-        <img className="img-fluid" src={objetivo3} alt="Objetivo 3" />
-        <img className="img-fluid" src={objetivo4} alt="Objetivo 4" />
+      
+      {/* Another header title */}
+      <BUHeaderTitle text="OBJETIVOS" type={HeaderTypes.WHITE} />
+
+      {/* Desktop Objectives Images */}
+      <div className="d-none d-lg-flex container justify-content-center text-center mb-3">
+        <img className="img-fluid me-3" src={objetivo1} alt="Objetivo 1" />
+        <img className="img-fluid me-3" src={objetivo2} alt="Objetivo 2" />
+        <img className="img-fluid me-3" src={objetivo3} alt="Objetivo 3" />
+        <img className="img-fluid me-3" src={objetivo4} alt="Objetivo 4" />
         <img className="img-fluid" src={objetivo5} alt="Objetivo 5" />
       </div>
+      
+      {/* Responsive Objective Image */}
       <div className="d-lg-none d-sm-block d-md-block container text-center mb-3">
         <img className="img-fluid" src={objResponsive} alt="Objetivos Responsivos" />
       </div>
     </div>
   );
 });
+
 
 export default Identidad;

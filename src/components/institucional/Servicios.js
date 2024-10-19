@@ -1,13 +1,12 @@
 import React, { forwardRef } from 'react';
 import collage from "../../assets/img/collageServi.jpg";
 import collageMobile from "../../assets/img/collageServiMobile.jpg";
+import BUHeaderTitle, { HeaderTypes } from '../BUHeaderTitle';
 
 const Servicios = forwardRef((props, ref) => {
   return (
-    <div id="servicios" className="container mt-5 p-5" ref={ref}>
-      <h2 className="text-center mb-4 fw-bold text-primary text-decoration-underline">
-        SERVICIOS
-      </h2>
+    <div id="servicios" className="container p-5 text-center" ref={ref}>
+      <BUHeaderTitle text="SERVICIOS" type={HeaderTypes.SECONDARY} />
       <img src={collage} className="d-none d-lg-block img-fluid" alt="Servicios Collage" />
       <img
         src={collageMobile}
@@ -17,5 +16,6 @@ const Servicios = forwardRef((props, ref) => {
     </div>
   );
 });
+
 
 export default Servicios;

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { TextField, InputAdornment, IconButton } from '@mui/material';
-import { Visibility, VisibilityOff } from '@mui/icons-material';
+import { TextField } from '@mui/material';
 
 const BUTextField = ({
     fieldType, // Define the fieldType (e.g., email, password, phone, etc.)
@@ -9,6 +8,7 @@ const BUTextField = ({
     required = false,
     customLabel, // Allow overriding the label if necessary
     customValidationFn, // Custom validation function
+    isMultiline = false,
     onTyping,
     onFinishTyping,
     ...props
@@ -87,6 +87,8 @@ const BUTextField = ({
                 return 'Nombre';
             case 'lastname':
                 return 'Apellido';
+            case 'message':
+                return 'Descripción';
             default:
                 return 'Campo';
         }
@@ -103,10 +105,6 @@ const BUTextField = ({
                 return 'number';
             case 'phone':
                 return 'tel';
-            case 'name':
-                return 'text';
-            case 'lastname':
-                return 'text';
             default:
                 return 'text';
         }
@@ -123,8 +121,11 @@ const BUTextField = ({
             error={error}
             helperText={helperText}
             required={required}
+            multiline={isMultiline} // Conditionally make it multiline
+            rows={isMultiline ? 8 : undefined} // If multiline, set default row count (adjust rows as needed)
             {...props}
         />
+
     );
 };
 

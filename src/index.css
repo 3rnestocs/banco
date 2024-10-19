@@ -53,7 +53,23 @@ body,
 }
 
 .text-primary {
-  color: var(--primary-color) !important;
+  color: var(--secondary-color) !important;
+  letter-spacing: 6px;
+  position: relative;
+}
+
+.separator {
+  text-align: center; /* Center align the h2 and the line */
+  display: inline-block; /* Ensure the line matches the h2 width */
+}
+
+.separator::after {
+  content: '';
+  display: inline-block;
+  width: 100%; /* Matches the width of the h2 text */
+  height: 2px; /* Height of the separator */
+  background-color: var(--secondary-color); /* Same color as text */
+  position: relative;
 }
 
 .btn-primary {
@@ -148,3 +164,18 @@ body,
   background-color: var(--secondary-color);
 }
 
+/* Add margin between each list item */
+.custom-nav-item {
+  margin-right: 50px;
+}
+
+/* Adjust the size of the Banca en Línea button */
+.custom-banking-btn {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.custom-send-btn {
+  padding-left: 50px;
+  padding-right: 50px;
+}
