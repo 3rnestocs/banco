@@ -1,13 +1,32 @@
 {
   "files": {
-    "main.css": "/banco/static/css/main.aa285035.css",
-    "main.js": "/banco/static/js/main.6a27ebd8.js",
+    "main.css": "/banco/static/css/main.93119bdd.css",
+    "main.js": "/banco/static/js/main.e764cf84.js",
+    "static/media/carousel4.png": "/banco/static/media/carousel4.2339ab58340d37bdabe2.png",
+    "static/media/carousel1.png": "/banco/static/media/carousel1.f55296fce490daaa14ec.png",
+    "static/media/carousel2.png": "/banco/static/media/carousel2.702747c602f98740448d.png",
+    "static/media/carousel3.png": "/banco/static/media/carousel3.0052cc12ffe2b848c7bd.png",
+    "static/media/objResponsive.png": "/banco/static/media/objResponsive.f4ae9bc7f8a6a674c351.png",
+    "static/media/imgVisio.png": "/banco/static/media/imgVisio.bc786b3c2947cfd8e30a.png",
+    "static/media/imgMision.png": "/banco/static/media/imgMision.dd5a6b6672055b0be796.png",
+    "static/media/collageServi.jpg": "/banco/static/media/collageServi.5b24660fc3f2fc9b2f8b.jpg",
+    "static/media/fondoIdentidad.png": "/banco/static/media/fondoIdentidad.32fac009025174745b73.png",
+    "static/media/obj5.png": "/banco/static/media/obj5.3308cf5e85f024fdca75.png",
+    "static/media/obj2.png": "/banco/static/media/obj2.67fb1b29780c7aa22ac6.png",
+    "static/media/obj3.png": "/banco/static/media/obj3.9cecaf0b9ff8ab55a53f.png",
+    "static/media/obj1.png": "/banco/static/media/obj1.36c86fdec8cc32a77552.png",
+    "static/media/collageServiMobile.jpg": "/banco/static/media/collageServiMobile.cf2c9742037349891637.jpg",
+    "static/media/obj4.png": "/banco/static/media/obj4.c09636150077bfe9c4bd.png",
+    "static/media/groupVision.png": "/banco/static/media/groupVision.9109c805c028e8f23227.png",
+    "static/media/groupMision.png": "/banco/static/media/groupMision.eafbee2450393e117415.png",
+    "static/media/banco_logo.png": "/banco/static/media/banco_logo.a22f808e6e0af11f1f06.png",
+    "static/media/favicon.ico": "/banco/static/media/favicon.00ea4dc3c2f6285329c1.ico",
     "index.html": "/banco/index.html",
-    "main.aa285035.css.map": "/banco/static/css/main.aa285035.css.map",
-    "main.6a27ebd8.js.map": "/banco/static/js/main.6a27ebd8.js.map"
+    "main.93119bdd.css.map": "/banco/static/css/main.93119bdd.css.map",
+    "main.e764cf84.js.map": "/banco/static/js/main.e764cf84.js.map"
   },
   "entrypoints": [
-    "static/css/main.aa285035.css",
-    "static/js/main.6a27ebd8.js"
+    "static/css/main.93119bdd.css",
+    "static/js/main.e764cf84.js"
   ]
 }
