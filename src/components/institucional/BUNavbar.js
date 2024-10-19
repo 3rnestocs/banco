@@ -1,8 +1,15 @@
 import { Link } from "react-router-dom";
 import React from "react";
-import logo from "../assets/banco_logo.png";
+import logo from "../../assets/banco_logo.png";
+import { Button } from "@mui/material";
 
-export const Navbar = () => {
+const BUNavbar = ({ serviciosRef, identidadRef, contactoRef }) => {
+  const handleScroll = (ref) => {
+    if (ref && ref.current) {
+      ref.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <nav className="navbar navbar-expand-lg bg-white">
       <div className="container-fluid">
@@ -16,14 +23,14 @@ export const Navbar = () => {
         </div>
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ms-auto me-auto">
-            <li className="nav-item">
-              <Link className="nav-link" to="/servicios">Servicios</Link>
+          <li className="nav-item">
+              <Button onClick={() => handleScroll(serviciosRef)}>Servicios</Button>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/container-identidad">Conócenos</Link>
+              <Button onClick={() => handleScroll(identidadRef)}>Conócenos</Button>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/contacto">Contacto</Link>
+              <Button onClick={() => handleScroll(contactoRef)}>Contacto</Button>
             </li>
           </ul>
           <Link to="/login">
@@ -36,3 +43,5 @@ export const Navbar = () => {
     </nav>
   );
 };
+
+export default BUNavbar;

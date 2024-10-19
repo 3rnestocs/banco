@@ -1,8 +1,8 @@
-import React from "react";
+import React, { forwardRef } from "react";
 
-export const Contacto = () => {
+const Contacto = forwardRef((props, ref) => {
   return (
-    <section id="contacto" className="container-fluid my-3">
+    <section id="contacto" className="container-fluid my-3" ref={ref}>
       <div className="container-fluid row text-center">
         <h2 className="text-primary fw-bold text-center mt-3 text-decoration-underline">
           Contacto
@@ -65,4 +65,6 @@ export const Contacto = () => {
       </div>
     </section>
   );
-};
+});
+
+export default Contacto;

@@ -1,15 +1,15 @@
 import React from "react";
-import logo_white from "../assets/img/logo_blanco.png";
-import iconMail from "../assets/img/iconMail.png";
-import iconPhone from "../assets/img/iconPhone.png";
-import iconUbicacion from "../assets/img/iconUbicacion.png";
-import iconFax from "../assets/img/iconFax.png";
-import iconFb from "../assets/img/iconFb.png";
-import iconTw from "../assets/img/iconTw.png";
-import iconIg from "../assets/img/iconIg.png";
-import favicon from "../assets/favicon.ico";
+import logo_white from "../../assets/img/logo_blanco.png";
+import iconMail from "../../assets/img/iconMail.png";
+import iconPhone from "../../assets/img/iconPhone.png";
+import iconUbicacion from "../../assets/img/iconUbicacion.png";
+import iconFax from "../../assets/img/iconFax.png";
+import iconFb from "../../assets/img/iconFb.png";
+import iconTw from "../../assets/img/iconTw.png";
+import iconIg from "../../assets/img/iconIg.png";
+import favicon from "../../assets/favicon.ico";
 
-export const Footer = () => {
+const BUFooter = () => {
   return (
     <div className="container-fluid bg-gradient-primary text-light">
       <div className="row bg-footer-gradient py-4">
@@ -63,3 +63,5 @@ export const Footer = () => {
     </div>
   );
 };
+
+export default BUFooter;

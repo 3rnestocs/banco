@@ -1,20 +1,23 @@
 import React from "react";
-import Institutional from "./routes/institutional/Institutional";
 import Login from "./routes/login/Login";
 import Register from "./routes/register/Register";
+import Institucional from "./routes/institucional/Institucional";
 
-const isAuthenticated = true; // Replace with real authentication logic
+// const isAuthenticated = true; // Replace with real authentication logic
 
 export const routesConfig = [
-   
+    {
+        path: "/",
+        component: <Institucional />,
+    },
     {
         path: "/login",
-        element: <Login />,
+        component: <Login />,
     },
     {
         path: "/register",
-        element: <Register />,
+        component: <Register />,
 
-        // element: isAuthenticated ? <Dashboard /> : <Redirect to="/login" />,
-    },
+        // component: isAuthenticated ? <Dashboard /> : <Redirect to="/login" />,
+    }
 ];

@@ -1,10 +1,10 @@
-import React from "react";
-import collage from "../assets/img/collageServi.jpg";
-import collageMobile from "../assets/img/collageServiMobile.jpg";
+import React, { forwardRef } from 'react';
+import collage from "../../assets/img/collageServi.jpg";
+import collageMobile from "../../assets/img/collageServiMobile.jpg";
 
-export const Servicios = () => {
+const Servicios = forwardRef((props, ref) => {
   return (
-    <div id="servicios" className="container mt-5 p-5">
+    <div id="servicios" className="container mt-5 p-5" ref={ref}>
       <h2 className="text-center mb-4 fw-bold text-primary text-decoration-underline">
         SERVICIOS
       </h2>
@@ -16,4 +16,6 @@ export const Servicios = () => {
       />
     </div>
   );
-};
+});
+
+export default Servicios;

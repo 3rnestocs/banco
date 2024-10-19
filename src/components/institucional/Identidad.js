@@ -1,18 +1,18 @@
-import React from "react";
-import imgMisio from "../assets/img/imgMision.png";
-import imgVisio from "../assets/img/imgVisio.png";
-import groupMision from "../assets/img/groupMision.png";
-import groupVision from "../assets/img/groupVision.png";
-import objetivo1 from "../assets/img/objetivos/obj1.png";
-import objetivo2 from "../assets/img/objetivos/obj2.png";
-import objetivo3 from "../assets/img/objetivos/obj3.png";
-import objetivo4 from "../assets/img/objetivos/obj4.png";
-import objetivo5 from "../assets/img/objetivos/obj5.png";
-import objResponsive from "../assets/img/objetivos/objResponsive.png";
+import React, { forwardRef } from "react";
+import imgMisio from "../../assets/img/imgMision.png";
+import imgVisio from "../../assets/img/imgVisio.png";
+import groupMision from "../../assets/img/groupMision.png";
+import groupVision from "../../assets/img/groupVision.png";
+import objetivo1 from "../../assets/img/objetivos/obj1.png";
+import objetivo2 from "../../assets/img/objetivos/obj2.png";
+import objetivo3 from "../../assets/img/objetivos/obj3.png";
+import objetivo4 from "../../assets/img/objetivos/obj4.png";
+import objetivo5 from "../../assets/img/objetivos/obj5.png";
+import objResponsive from "../../assets/img/objetivos/objResponsive.png";
 
-export const Identidad = () => {
+const Identidad = forwardRef((props, ref) => {
   return (
-    <div id="container-identidad" className="container-fluid m-0">
+    <div id="container-identidad" className="container-fluid m-0" ref={ref}>
       <h2 className="text-light text-center m-3 text-decoration-underline">
         Identidad Empresarial
       </h2>
@@ -43,4 +43,6 @@ export const Identidad = () => {
       </div>
     </div>
   );
-};
+});
+
+export default Identidad;
