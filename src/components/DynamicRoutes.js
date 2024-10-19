@@ -1,6 +1,5 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Institutional from '../routes/institutional/Institutional';
 import Login from '../routes/login/Login';
 import Register from '../routes/register/Register';
 
@@ -8,10 +7,7 @@ const DynamicRoutes = () => {
     const isAuthenticated = true; // Replace with real authentication logic
 
     const routesConfig = [
-        {
-            path: "/",
-            component: <Institutional />,
-        },
+       
         {
             path: "/login",
             component: <Login />,
@@ -22,6 +18,7 @@ const DynamicRoutes = () => {
 
             // element: isAuthenticated ? <Dashboard /> : <Redirect to="/login" />,
         },
+        
     ];
 
     return (

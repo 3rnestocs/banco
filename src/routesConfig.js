@@ -6,10 +6,7 @@ import Register from "./routes/register/Register";
 const isAuthenticated = true; // Replace with real authentication logic
 
 export const routesConfig = [
-    {
-        path: "/",
-        element: <Institutional />,
-    },
+   
     {
         path: "/login",
         element: <Login />,

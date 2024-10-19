@@ -6,3 +6,145 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+:root {
+  --primary-color: #085F63;
+  --secondary-color: #49BEB7;
+}
+
+body,
+#root {
+  font-family: 'Montserrat Alternates', sans-serif;
+}
+
+.bg-gradient-primary {
+  background: linear-gradient(to top,
+      #085f63 30%,
+      #49BEB7,
+      #8dd7d2,
+      #ffffff);
+}
+
+.bg-new-secondary {
+  background: var(--secondary-color);
+}
+
+.bg-gradient-secondary {
+  background: rgba(141, 215, 210, 0.6);
+}
+
+.border-primary {
+  border-color: var(--primary-color) !important;
+}
+
+.btn-primary:hover,
+.btn-primary:active {
+  color: #fff;
+  background-color: rgba(6, 83, 87, 0.9);
+  border-color: rgba(6, 83, 87, 0.9);
+}
+
+/* Personalizar los estilos usando las nuevas variables personalizadas */
+.bg-primary {
+  background: var(--primary-color) !important;
+}
+
+.bg-footer-gradient {
+  background: linear-gradient(#056061, #2E7F83);
+}
+
+.text-primary {
+  color: var(--primary-color) !important;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+}
+
+.btn-secondary {
+  background-color: var(--secondary-color);
+}
+
+.bg-gradient-b {
+  background: linear-gradient(to bottom, #ffffff, #085f63),
+}
+
+/*Bordes redondeados personalizados*/
+.rounded-4 {
+  border-radius: 3.8rem !important;
+}
+
+.rounded-8 {
+  border-radius: 8rem !important;
+}
+
+.nav-item a {
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+.carousel-indicators button {
+  border-radius: 100%;
+  height: 16px !important;
+  background-color: #fff;
+  border: 3px solid #fff;
+  /* Aumenta el grosor del borde aquí */
+  opacity: 1;
+  box-shadow: none;
+}
+
+.carousel-indicators {
+  justify-content: flex-end !important;
+  margin-right: 1rem !important;
+}
+
+#container-identidad {
+    position: relative; /* Asegúrate de que el contenedor tenga posición relativa */
+    background-image: url('./assets/img/fondoIdentidad.png');
+    background-size: cover;
+    overflow: hidden; /* Para evitar que el overlay se salga del contenedor */
+}
+
+.grid-item {
+  position: relative;
+  color: white;
+  text-align: center;
+  overflow: hidden;
+}
+.grid-item img {
+  width: 100%;
+  height: auto;
+  filter: blur(0px);
+}
+.grid-caption {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.carousel-image-container {
+  position: relative;
+}
+
+.btn-banca {
+  position: absolute;
+  bottom: 20px;
+  left: 25%;
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 3.8rem !important;
+  z-index: 10;
+  text-decoration: none;
+}
+
+.btn-banca:hover {
+  background-color: var(--secondary-color);
+}
+
