@@ -10,40 +10,107 @@ import objetivo4 from "../../assets/img/objetivos/obj4.png";
 import objetivo5 from "../../assets/img/objetivos/obj5.png";
 import objResponsive from "../../assets/img/objetivos/objResponsive.png";
 import BUHeaderTitle, { HeaderTypes } from '../BUHeaderTitle';
+import { Box } from "@mui/material";
 
 const Identidad = forwardRef((props, ref) => {
   return (
-    <div id="container-identidad" className="container-fluid text-center" ref={ref}>
-      {/* Header Title */}
-      <BUHeaderTitle text="IDENTIDAD EMPRESARIAL" type={HeaderTypes.WHITE} />
-      
-      {/* Container for Misión and Visión images */}
-      <div className="container d-flex flex-column align-items-center">
-        <img className="d-none d-lg-block img-fluid mb-3" src={imgMisio} alt="Misión" />
-        <img className="d-none d-lg-block img-fluid mb-3" src={imgVisio} alt="Visión" />
-        <img className="d-lg-none d-sm-block d-md-block img-fluid mb-3" src={groupMision} alt="Grupo Misión" />
-        <img className="d-lg-none d-sm-block d-md-block img-fluid mb-3" src={groupVision} alt="Grupo Visión" />
-      </div>
-      
-      {/* Another header title */}
-      <BUHeaderTitle text="OBJETIVOS" type={HeaderTypes.WHITE} />
+    <Box
+      id="container-identidad"
+      sx={{ bgcolor: "background.default", m: 0, p: 5 }}
+    >
+      {/* Header Title - Centered */}
+      <Box sx={{ display: "flex", justifyContent: "center" }}>
+        <BUHeaderTitle text="IDENTIDAD EMPRESARIAL" type={HeaderTypes.WHITE} />
+      </Box>
 
-      {/* Desktop Objectives Images */}
-      <div className="d-none d-lg-flex container justify-content-center text-center mb-3">
-        <img className="img-fluid me-3" src={objetivo1} alt="Objetivo 1" />
-        <img className="img-fluid me-3" src={objetivo2} alt="Objetivo 2" />
-        <img className="img-fluid me-3" src={objetivo3} alt="Objetivo 3" />
-        <img className="img-fluid me-3" src={objetivo4} alt="Objetivo 4" />
-        <img className="img-fluid" src={objetivo5} alt="Objetivo 5" />
-      </div>
-      
-      {/* Responsive Objective Image */}
-      <div className="d-lg-none d-sm-block d-md-block container text-center mb-3">
-        <img className="img-fluid" src={objResponsive} alt="Objetivos Responsivos" />
-      </div>
-    </div>
+      <Box sx={{ textAlign: "center" }}>
+        {/* Imágenes de misión y visión para pantallas grandes */}
+        <Box sx={{ display: { xs: "none", lg: "block" } }}>
+          <img
+            src={imgMisio}
+            alt="Misión"
+            style={{ width: "100%", height: "auto" }}
+          />
+          <img
+            src={imgVisio}
+            alt="Visión"
+            style={{ width: "100%", height: "auto" }}
+          />
+        </Box>
+
+        {/* Imágenes de misión y visión para pantallas más pequeñas */}
+        <Box sx={{ display: { xs: "block", lg: "none" } }}>
+          <img
+            src={groupMision}
+            alt="Grupo Misión"
+            style={{ width: "100%", height: "auto" }}
+          />
+          <img
+            src={groupVision}
+            alt="Grupo Visión"
+            style={{ width: "100%", height: "auto" }}
+          />
+        </Box>
+      </Box>
+
+      {/* Another header title - Centered */}
+      <Box sx={{ display: "flex", justifyContent: "center" }}>
+        <BUHeaderTitle text="OBJETIVOS" type={HeaderTypes.WHITE} />
+      </Box>
+
+      {/* Objetivos para pantallas grandes */}
+      <Box
+        sx={{
+          display: { xs: "none", lg: "block" },
+          textAlign: "center",
+          mb: 3,
+        }}
+      >
+        <img
+          src={objetivo1}
+          alt="Objetivo 1"
+          style={{ width: "auto", height: "auto" }}
+        />
+        <img
+          src={objetivo2}
+          alt="Objetivo 2"
+          style={{ width: "auto", height: "auto" }}
+        />
+        <img
+          src={objetivo3}
+          alt="Objetivo 3"
+          style={{ width: "auto", height: "auto" }}
+        />
+        <img
+          src={objetivo4}
+          alt="Objetivo 4"
+          style={{ width: "auto", height: "auto" }}
+        />
+        <img
+          src={objetivo5}
+          alt="Objetivo 5"
+          style={{ width: "auto", height: "auto" }}
+        />
+      </Box>
+
+      {/* Objetivos para pantallas más pequeñas */}
+      <Box
+        sx={{
+          display: { xs: "block", lg: "none" },
+          textAlign: "center",
+          mb: 3,
+        }}
+      >
+        <img
+          src={objResponsive}
+          alt="Objetivos Responsivos"
+          style={{ width: "100%", height: "auto" }}
+        />
+      </Box>
+    </Box>
   );
 });
+
 
 
 export default Identidad;
