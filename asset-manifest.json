@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/banco/static/css/main.9539e9f4.css",
-    "main.js": "/banco/static/js/main.cfaa03c2.js",
+    "main.css": "/banco/static/css/main.b0efc65d.css",
+    "main.js": "/banco/static/js/main.922453c9.js",
     "static/media/carousel4.png": "/banco/static/media/carousel4.2339ab58340d37bdabe2.png",
     "static/media/carousel1.png": "/banco/static/media/carousel1.f55296fce490daaa14ec.png",
     "static/media/carousel2.png": "/banco/static/media/carousel2.702747c602f98740448d.png",
@@ -22,11 +22,11 @@
     "static/media/banco_logo.png": "/banco/static/media/banco_logo.a22f808e6e0af11f1f06.png",
     "static/media/favicon.ico": "/banco/static/media/favicon.00ea4dc3c2f6285329c1.ico",
     "index.html": "/banco/index.html",
-    "main.9539e9f4.css.map": "/banco/static/css/main.9539e9f4.css.map",
-    "main.cfaa03c2.js.map": "/banco/static/js/main.cfaa03c2.js.map"
+    "main.b0efc65d.css.map": "/banco/static/css/main.b0efc65d.css.map",
+    "main.922453c9.js.map": "/banco/static/js/main.922453c9.js.map"
   },
   "entrypoints": [
-    "static/css/main.9539e9f4.css",
-    "static/js/main.cfaa03c2.js"
+    "static/css/main.b0efc65d.css",
+    "static/js/main.922453c9.js"
   ]
 }
