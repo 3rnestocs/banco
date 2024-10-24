@@ -16,7 +16,7 @@ const BUTextField = ({
     const [error, setError] = useState(false);
     const [helperText, setHelperText] = useState('');
     const [isTyping, setIsTyping] = useState(false);
-    const [showPassword, setShowPassword] = useState(false); // To toggle password visibility
+    const [showPassword] = useState(false);
 
     // Debounce user typing detection
     useEffect(() => {
@@ -48,7 +48,8 @@ const BUTextField = ({
                     setError(!emailPattern.test(value));
                     setHelperText(!emailPattern.test(value) ? 'Correo electrónico inválido' : '');
                     break;
-                case 'password', 'confirmPassword':
+                case 'password':
+                case 'confirmPassword':
                     setError(value.length < 6); // Simple password length validation
                     setHelperText(value.length < 6 ? 'La contraseña debe tener al menos 6 caracteres' : '');
                     break;

@@ -28,13 +28,18 @@ const BUNavbar = ({ serviciosRef, identidadRef, contactoRef }) => {
         >
           {/* Logo aligned to the left */}
           <Box sx={{ display: "flex", alignItems: "center" }}>
-            <a href="#" style={{ display: "flex", alignItems: "center" }}>
-              <IconButton edge="start" color="inherit" aria-label="logo">
-                <img id="img-logo" width="auto" src={logo} height={42} alt="Logo" />
-              </IconButton>
-            </a>
+            <IconButton
+              edge="start"
+              color="inherit"
+              aria-label="logo"
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              style={{ display: "flex", alignItems: "center" }}
+            >
+              <img id="img-logo" width="auto" src={logo} height={42} alt="Logo" />
+            </IconButton>
           </Box>
-  
+
+
           {/* Tabs and buttons aligned to the right */}
           <Box sx={{ display: "flex", alignItems: "center" }}>
             <ul
@@ -68,7 +73,7 @@ const BUNavbar = ({ serviciosRef, identidadRef, contactoRef }) => {
       </Toolbar>
     </AppBar>
   );
-  
+
 };
 
 export default BUNavbar;
