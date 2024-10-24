@@ -17,6 +17,7 @@ const Identidad = forwardRef((props, ref) => {
     <Box
       id="container-identidad"
       sx={{ bgcolor: "background.default", m: 0, p: 5 }}
+      ref={ref}
     >
       {/* Header Title - Centered */}
       <Box sx={{ display: "flex", justifyContent: "center" }}>

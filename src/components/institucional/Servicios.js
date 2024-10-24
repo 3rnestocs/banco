@@ -2,18 +2,38 @@ import React, { forwardRef } from 'react';
 import collage from "../../assets/img/collageServi.jpg";
 import collageMobile from "../../assets/img/collageServiMobile.jpg";
 import BUHeaderTitle, { HeaderTypes } from '../BUHeaderTitle';
+import { Box } from '@mui/material';
 
 const Servicios = forwardRef((props, ref) => {
   return (
-    <div id="servicios" className="container p-5 text-center" ref={ref}>
+  <Box
+      id="servicios"
+      sx={{
+        mt: 5,
+        p: 5,
+        textAlign: "center",
+      }}
+      ref={ref}
+    >
       <BUHeaderTitle text="SERVICIOS" type={HeaderTypes.SECONDARY} />
-      <img src={collage} className="d-none d-lg-block img-fluid" alt="Servicios Collage" />
-      <img
-        src={collageMobile}
-        className="d-lg-none d-sm-block d-md-block img-fluid"
-        alt="Servicios Collage Mobile"
-      />
-    </div>
+
+      {/* Imágenes responsivas */}
+      <Box sx={{ display: { xs: "none", lg: "block" } }}>
+        <img
+          src={collage}
+          alt="Collage de Servicios"
+          style={{ width: "100%", height: "auto" }}
+        />
+      </Box>
+
+      <Box sx={{ display: { xs: "block", lg: "none" } }}>
+        <img
+          src={collageMobile}
+          alt="Collage de Servicios Móvil"
+          style={{ width: "100%", height: "auto" }}
+        />
+      </Box>
+    </Box>
   );
 });
 

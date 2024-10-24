@@ -1,55 +1,64 @@
-import React from "react";
-import Carousel from "react-bootstrap/Carousel";
+import React, { useState } from "react";
+import { Box, Button } from "@mui/material";
 import img1 from "../../assets/img/carousel1.png";
 import img2 from "../../assets/img/carousel2.png";
 import img3 from "../../assets/img/carousel3.png";
 import img4 from "../../assets/img/carousel4.png";
-import { Link } from "react-router-dom";
+
+const images = [img1, img2, img3, img4];
 
 const BUImageCarousel = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
   return (
-    <Carousel interval={null} indicators={true}>
-      <Carousel.Item>
-        <div className="carousel-image-container position-relative">
-          <img className="d-block w-100" src={img1} alt="Slide 1" />
-          <Link to="/login" className="btn-banca position-absolute bottom-0 start-25 translate-middle-x mb-3">
+    <Box sx={{ position: "relative", width: "100%", overflow: "hidden" }}>
+      <img
+        src={images[currentIndex]}
+        alt={`Slide ${currentIndex + 1}`}
+        style={{
+          width: "100%",
+          height: "auto",
+          display: "block",
+        }}
+      />
 
-            Banca en Línea
+      <Button
+        variant="contained"
+        sx={{
+          position: "absolute",
+          bottom: 20,
+          left: 20,
+          borderRadius: "4rem",
+          zIndex: 1, // Asegura que esté por encima de las imágenes
+        }}
+      >
+        Banca en Línea
+      </Button>
 
-          </Link>
-        </div>
-      </Carousel.Item>
-      <Carousel.Item>
-        <div className="carousel-image-container position-relative">
-          <img className="d-block w-100" src={img2} alt="Slide 2" />
-          <Link to="/login" className="btn-banca position-absolute bottom-0 start-25 translate-middle-x mb-3">
-
-            Banca en Línea
-
-          </Link>
-        </div>
-      </Carousel.Item>
-      <Carousel.Item>
-        <div className="carousel-image-container position-relative">
-          <img className="d-block w-100" src={img3} alt="Slide 3" />
-          <Link to="/login" className="btn-banca position-absolute bottom-0 start-25 translate-middle-x mb-3">
-
-            Banca en Línea
-
-          </Link>
-        </div>
-      </Carousel.Item>
-      <Carousel.Item>
-        <div className="carousel-image-container position-relative">
-          <img className="d-block w-100" src={img4} alt="Slide 4" />
-          <Link to="/login" className="btn-banca position-absolute bottom-0 start-25 translate-middle-x mb-3">
-
-            Banca en Línea
-
-          </Link>
-        </div>
-      </Carousel.Item>
-    </Carousel>
+      <Box
+        sx={{
+          position: "absolute",
+          bottom: 16,
+          right: 20, // Cambiado a la derecha
+          display: "flex",
+        }}
+      >
+        {images.map((_, index) => (
+          <Box
+            key={index}
+            sx={{
+              width: 12,
+              height: 12,
+              margin: 1,
+              borderRadius: "50%",
+              backgroundColor: currentIndex === index ? "white" : "grey.400", // Cambiado a blanco
+              transition: "background-color 0.3s",
+            }}
+            onClick={() => setCurrentIndex(index)}
+          />
+        ))}
+      </Box>
+    </Box>
   );
 }
 
