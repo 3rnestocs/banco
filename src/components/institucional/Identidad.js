@@ -1,117 +1,117 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef, useState } from "react";
 import imgMisio from "../../assets/img/imgMision.png";
 import imgVisio from "../../assets/img/imgVisio.png";
-import groupMision from "../../assets/img/groupMision.png";
-import groupVision from "../../assets/img/groupVision.png";
 import objetivo1 from "../../assets/img/objetivos/obj1.png";
 import objetivo2 from "../../assets/img/objetivos/obj2.png";
 import objetivo3 from "../../assets/img/objetivos/obj3.png";
 import objetivo4 from "../../assets/img/objetivos/obj4.png";
 import objetivo5 from "../../assets/img/objetivos/obj5.png";
-import objResponsive from "../../assets/img/objetivos/objResponsive.png";
 import BUHeaderTitle, { HeaderTypes } from '../BUHeaderTitle';
 import { Box } from "@mui/material";
+import Objective from '../../components/Objective';
+import ImageTextMision from "../ImageTextMision";
+import ImageTextVision from "../ImageTextVision";
+import ObjSmall1 from "../../assets/img/objetivos/ObjSmall1.png";
+import ObjSmall2 from "../../assets/img/objetivos/ObjSmall2.png";
+import ObjSmall3 from "../../assets/img/objetivos/ObjSmall3.png";
+import ObjSmall4 from "../../assets/img/objetivos/ObjSmall4.png";
+import ObjSmall5 from "../../assets/img/objetivos/ObjSmall5.png";
+import MisionSmall from "../../assets/img/MisionSmall.png";
+import VisionSmall from "../../assets/img/VisionSmall.png";
+
+const objetivos = [
+  { src: objetivo1, smallSrc: ObjSmall1, text: "Brindar a los estudiantes universitarios un servicio eficiente y de calidad en la gestión de sus recursos financieros." },
+  { src: objetivo2, smallSrc: ObjSmall2, text: "Fomentar el uso de nuestras plataformas para hacer transferencias sin comisión, depósitos y retiros de efectivo." },
+  { src: objetivo3, smallSrc: ObjSmall3, text: "Promover la educación financiera de los estudiantes universitarios." },
+  { src: objetivo4, smallSrc: ObjSmall4, text: "Establecer alianzas estratégicas con universidades y empresas para ofrecer beneficios a nuestros clientes." },
+  { src: objetivo5, smallSrc: ObjSmall5, text: "Mantener una cultura de innovación y mejora continua en nuestros procesos, productos y servicios." },
+];
+
+const MisionVision = [
+  { src: imgMisio, smallSrc: MisionSmall, text: "Somos una institución financiera comprometida con los estudiantes universitarios, brindando soluciones financieras ágiles y eficientes. Nuestra misión es facilitar la gestión de sus recursos y contribuir al crecimiento económico y personal de nuestros clientes." },
+  { src: imgVisio, smallSrc: VisionSmall, text: "Queremos ser la mejor opción financiera para estudiantes universitarios en el país. Deseamos ser reconocidos por nuestros servicios innovadores, la calidad de atención al cliente y nuestro compromiso con la educación y el desarrollo social." },
+];
+
+
+
 
 const Identidad = forwardRef((props, ref) => {
+  const [hoveredIndexMV, setHoveredIndexMV] = useState(null);
+  const [hoveredIndexObj, setHoveredIndexObj] = useState(null)
+
   return (
-    <Box
-      id="container-identidad"
-      sx={{ bgcolor: "background.default", m: 0, p: 5 }}
-      ref={ref}
-    >
-      {/* Header Title - Centered */}
-      <Box sx={{ display: "flex", justifyContent: "center" }}>
-        <BUHeaderTitle text="IDENTIDAD EMPRESARIAL" type={HeaderTypes.WHITE} />
-      </Box>
+    <div id="container-identidad" className="container-fluid m-0">
+      <Box
+        id="container-identidad"
+        sx={{ bgcolor: "background.default", m: 0, p: 5 }}
+        ref={ref}
+      >
 
-      <Box sx={{ textAlign: "center" }}>
-        {/* Imágenes de misión y visión para pantallas grandes */}
-        <Box sx={{ display: { xs: "none", lg: "block" } }}>
-          <img
-            src={imgMisio}
-            alt="Misión"
-            style={{ width: "100%", height: "auto" }}
-          />
-          <img
-            src={imgVisio}
-            alt="Visión"
-            style={{ width: "100%", height: "auto" }}
-          />
+        <Box sx={{ margin: theme => theme.spacing(1) }}> 
+        <Box sx={{ display: "flex", justifyContent: "center" }}>
+          <BUHeaderTitle text="IDENTIDAD EMPRESARIAL" type={HeaderTypes.WHITE} />
         </Box>
 
-        {/* Imágenes de misión y visión para pantallas más pequeñas */}
-        <Box sx={{ display: { xs: "block", lg: "none" } }}>
-          <img
-            src={groupMision}
-            alt="Grupo Misión"
-            style={{ width: "100%", height: "auto" }}
-          />
-          <img
-            src={groupVision}
-            alt="Grupo Visión"
-            style={{ width: "100%", height: "auto" }}
-          />
+        <Box sx={{ textAlign: "center", mb: 3 }}>
+        
+          <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+            {MisionVision.map((img, index) => (
+              <Box
+                key={index}
+                onMouseEnter={() => setHoveredIndexMV(index)}
+                onMouseLeave={() => setHoveredIndexMV(null)}
+                sx={{
+                  width: "100%", 
+                  height: "auto", 
+                  maxWidth: "1600px",
+                  margin: "20px",
+                  
+                 
+                }}
+              >
+                {index === 0 ? (
+                  <ImageTextMision src={img.src} smallSrc={img.smallSrc} text={img.text} isHovered={hoveredIndexMV === index} />
+                ) : (
+                  <ImageTextVision src={img.src} smallSrc={img.smallSrc} text={img.text} isHovered={hoveredIndexMV === index} />
+                )}
+              </Box>
+            ))}
+            </Box>
+          </Box>
+          
         </Box>
-      </Box>
 
-      {/* Another header title - Centered */}
-      <Box sx={{ display: "flex", justifyContent: "center" }}>
-        <BUHeaderTitle text="OBJETIVOS" type={HeaderTypes.WHITE} />
-      </Box>
+        <Box sx={{ display: "flex", justifyContent: "center" }}>
+          <BUHeaderTitle text="OBJETIVOS" type={HeaderTypes.WHITE} />
+       </Box>
+       
+        <Box sx={{ 
+         display: { xs: "flex", lg: "flex" },
+         flexDirection: { xs: "column", lg: "row" },
+         justifyContent: "center", 
+         textAlign: "center", 
+         mb: 3 
+         }}>
 
-      {/* Objetivos para pantallas grandes */}
-      <Box
-        sx={{
-          display: { xs: "none", lg: "block" },
-          textAlign: "center",
-          mb: 3,
-        }}
-      >
-        <img
-          src={objetivo1}
-          alt="Objetivo 1"
-          style={{ width: "auto", height: "auto" }}
+         {objetivos.map((obj, index) => (
+          <Box
+          key={index}
+          onMouseEnter={() => setHoveredIndexObj(index)}
+          onMouseLeave={() => setHoveredIndexObj(null)}
+          sx={{  width: { xs:'auto', lg: "auto" } }} 
+          >
+        <Objective 
+        src={obj.src}s
+        smallSrc={obj.smallSrc} 
+        text={obj.text} 
+        isHovered={hoveredIndexObj === index} 
         />
-        <img
-          src={objetivo2}
-          alt="Objetivo 2"
-          style={{ width: "auto", height: "auto" }}
-        />
-        <img
-          src={objetivo3}
-          alt="Objetivo 3"
-          style={{ width: "auto", height: "auto" }}
-        />
-        <img
-          src={objetivo4}
-          alt="Objetivo 4"
-          style={{ width: "auto", height: "auto" }}
-        />
-        <img
-          src={objetivo5}
-          alt="Objetivo 5"
-          style={{ width: "auto", height: "auto" }}
-        />
+        </Box>
+          ))}
       </Box>
-
-      {/* Objetivos para pantallas más pequeñas */}
-      <Box
-        sx={{
-          display: { xs: "block", lg: "none" },
-          textAlign: "center",
-          mb: 3,
-        }}
-      >
-        <img
-          src={objResponsive}
-          alt="Objetivos Responsivos"
-          style={{ width: "100%", height: "auto" }}
-        />
       </Box>
-    </Box>
+    </div>
   );
 });
-
-
 
 export default Identidad;
