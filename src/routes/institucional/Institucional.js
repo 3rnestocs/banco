@@ -16,7 +16,7 @@ const Institucional = () => {
         <>
             {/* Pass the refs down to the sections */}
             <BUNavbar serviciosRef={serviciosRef} identidadRef={identidadRef} contactoRef={contactoRef} />
-            <BUImageCarousel />
+            <BUImageCarousel serviciosRef={serviciosRef} identidadRef={identidadRef} contactoRef={contactoRef} />
             <Servicios ref={serviciosRef} />
             <Identidad ref={identidadRef} />
             <Contacto ref={contactoRef} />

@@ -82,21 +82,6 @@ body,
   font-weight: bold;
 }
 
-.carousel-indicators button {
-  border-radius: 100%;
-  height: 16px !important;
-  background-color: #fff;
-  border: 3px solid #fff;
-  /* Aumenta el grosor del borde aquí */
-  opacity: 1;
-  box-shadow: none;
-}
-
-.carousel-indicators {
-  justify-content: flex-end !important;
-  margin-right: 1rem !important;
-}
-
 #container-identidad {
     position: relative; /* Asegúrate de que el contenedor tenga posición relativa */
     background-image: url('./assets/img/fondoIdentidad.png');
@@ -123,10 +108,6 @@ body,
   background-color: rgba(0, 0, 0, 0.5);
   padding: 10px;
   border-radius: 5px;
-}
-
-.carousel-image-container {
-  position: relative;
 }
 
 .btn-banca {
@@ -156,4 +137,37 @@ body,
     width: 120px !important;
   }
 
+}
+
+.carousel-image {
+  position: relative;
+  width: 100%;
+  height: auto;
+  transition: transform 0.6s ease;
+}
+
+.carousel-image.right {
+  animation: slideInRight 0.6s forwards;
+}
+
+.carousel-image.left {
+  animation: slideInLeft 0.6s forwards;
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
 }

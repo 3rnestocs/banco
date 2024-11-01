@@ -73,31 +73,3 @@ const BUNavbar = ({ serviciosRef, identidadRef, contactoRef }) => {
 };
 
 export default BUNavbar;
-
-  // return (
-  //   <AppBar
-  //     position="sticky"
-  //     sx={{ backgroundColor: "white", width: "100%", boxShadow: "none" }}
-  //   >
-  //     <Toolbar>
-  //       <Container
-  //         maxWidth="lg"
-  //         sx={{
-  //           display: "flex",
-  //           alignItems: "center",
-  //           justifyContent: "space-between", // Ensure space between logo and nav items
-  //           width: "100%",
-  //         }}
-  //       >
-  //         {/* Logo aligned to the left */}
-  //         <Box sx={{ display: "flex", alignItems: "center" }}>
-  //           <IconButton
-  //             edge="start"
-  //             color="inherit"
-  //             aria-label="logo"
-  //             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-  //             style={{ display: "flex", alignItems: "center" }}
-  //           >
-  //             <img id="img-logo" width="auto" src={logo} height={42} alt="Logo" />
-  //           </IconButton>
-  //         </Box>
