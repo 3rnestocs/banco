@@ -1,32 +1,36 @@
 {
   "files": {
-    "main.css": "/banco/static/css/main.b0efc65d.css",
-    "main.js": "/banco/static/js/main.c60b93c7.js",
+    "main.css": "/banco/static/css/main.73778ab1.css",
+    "main.js": "/banco/static/js/main.a26eeb1d.js",
     "static/media/carousel4.png": "/banco/static/media/carousel4.2339ab58340d37bdabe2.png",
     "static/media/carousel1.png": "/banco/static/media/carousel1.f55296fce490daaa14ec.png",
     "static/media/carousel2.png": "/banco/static/media/carousel2.702747c602f98740448d.png",
     "static/media/carousel3.png": "/banco/static/media/carousel3.0052cc12ffe2b848c7bd.png",
-    "static/media/objResponsive.png": "/banco/static/media/objResponsive.f4ae9bc7f8a6a674c351.png",
-    "static/media/imgVisio.png": "/banco/static/media/imgVisio.bc786b3c2947cfd8e30a.png",
-    "static/media/imgMision.png": "/banco/static/media/imgMision.dd5a6b6672055b0be796.png",
+    "static/media/imgVisio.png": "/banco/static/media/imgVisio.1a667ef0c035dcb6e30a.png",
+    "static/media/imgMision.png": "/banco/static/media/imgMision.e3abb8beb4730c066195.png",
     "static/media/collageServi.jpg": "/banco/static/media/collageServi.5b24660fc3f2fc9b2f8b.jpg",
+    "static/media/ObjSmall5.png": "/banco/static/media/ObjSmall5.6727f9f73335e71814ee.png",
+    "static/media/VisionSmall.png": "/banco/static/media/VisionSmall.6f0287492934ff5c3e72.png",
     "static/media/fondoIdentidad.png": "/banco/static/media/fondoIdentidad.32fac009025174745b73.png",
-    "static/media/obj5.png": "/banco/static/media/obj5.3308cf5e85f024fdca75.png",
-    "static/media/obj2.png": "/banco/static/media/obj2.67fb1b29780c7aa22ac6.png",
-    "static/media/obj3.png": "/banco/static/media/obj3.9cecaf0b9ff8ab55a53f.png",
-    "static/media/obj1.png": "/banco/static/media/obj1.36c86fdec8cc32a77552.png",
+    "static/media/obj5.png": "/banco/static/media/obj5.c1ae5f3f1ae42b5c37ff.png",
+    "static/media/ObjSmall2.png": "/banco/static/media/ObjSmall2.11ef23a132bce9a8be1d.png",
+    "static/media/ObjSmall1.png": "/banco/static/media/ObjSmall1.bc5f8a83e14ef587a18b.png",
+    "static/media/MisionSmall.png": "/banco/static/media/MisionSmall.ee6bf4951401afe5f7bc.png",
+    "static/media/ObjSmall4.png": "/banco/static/media/ObjSmall4.ede12cbfc5e9705b5753.png",
+    "static/media/obj2.png": "/banco/static/media/obj2.d26824ce819fe721913e.png",
+    "static/media/obj3.png": "/banco/static/media/obj3.5cd3b9abc6c920658bbd.png",
+    "static/media/obj1.png": "/banco/static/media/obj1.3bb11fced6e6c0373dbb.png",
+    "static/media/ObjSmall3.png": "/banco/static/media/ObjSmall3.d979000874b22e0f0aa4.png",
+    "static/media/obj4.png": "/banco/static/media/obj4.0c7476b023cf54bac2b9.png",
     "static/media/collageServiMobile.jpg": "/banco/static/media/collageServiMobile.cf2c9742037349891637.jpg",
-    "static/media/obj4.png": "/banco/static/media/obj4.c09636150077bfe9c4bd.png",
-    "static/media/groupVision.png": "/banco/static/media/groupVision.9109c805c028e8f23227.png",
-    "static/media/groupMision.png": "/banco/static/media/groupMision.eafbee2450393e117415.png",
-    "static/media/banco_logo.png": "/banco/static/media/banco_logo.a22f808e6e0af11f1f06.png",
+    "static/media/logo.png": "/banco/static/media/logo.3667f7cb6ddea0f0387e.png",
     "static/media/favicon.ico": "/banco/static/media/favicon.00ea4dc3c2f6285329c1.ico",
     "index.html": "/banco/index.html",
-    "main.b0efc65d.css.map": "/banco/static/css/main.b0efc65d.css.map",
-    "main.c60b93c7.js.map": "/banco/static/js/main.c60b93c7.js.map"
+    "main.73778ab1.css.map": "/banco/static/css/main.73778ab1.css.map",
+    "main.a26eeb1d.js.map": "/banco/static/js/main.a26eeb1d.js.map"
   },
   "entrypoints": [
-    "static/css/main.b0efc65d.css",
-    "static/js/main.c60b93c7.js"
+    "static/css/main.73778ab1.css",
+    "static/js/main.a26eeb1d.js"
   ]
 }
