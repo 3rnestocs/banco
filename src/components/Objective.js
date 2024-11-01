@@ -12,11 +12,12 @@ const OverlayText = styled(Box)(({ theme }) => ({
   backgroundColor: 'White', 
   color: 'black', 
   fontFamily: 'Roboto, sans-serif',
-  fontWeight: 'bold',
+  fontWeight: 'regular',
   fontSize: '1.3rem', 
   zIndex: 1,
   display: 'flex', 
   alignItems: 'center',
+  padding: '0 20px',
   justifyContent: 'center',
   transition: 'opacity 0.5s ease-in-out', 
   
