@@ -1,6 +1,6 @@
 import { styled } from '@mui/system';
 import React from 'react';
-import { Box, Button, useMediaQuery } from '@mui/material';
+import { Box, Button} from '@mui/material';
 
 const OverlayText = styled(Box)(({ theme }) => ({
   position: 'absolute',
@@ -11,20 +11,14 @@ const OverlayText = styled(Box)(({ theme }) => ({
   backgroundColor: 'White',
   color: 'black',
   fontFamily: 'Roboto, sans-serif',
-  fontWeight: 'regular',
+  fontWeight: 'bold',
   fontSize: '1.8rem',
   zIndex: 1,
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  padding: '0 60px',
   transition: 'opacity 0.5s ease-in-out',
-  '@media (max-width: 768px)': {
-    left: 280,
-  },
-  '@media (max-width: 360px)': {
-    left: 280,
-  },
+
 }));
 
 const ButtonStyled = styled(Button)(({ theme }) => ({
@@ -43,10 +37,13 @@ const ButtonStyled = styled(Button)(({ theme }) => ({
     fontSize: '0.8rem', 
     padding: '3px 15px', 
   },
+  '@media (min-width: 100px) and (max-width: 600px)': {
+    fontSize: '0.5rem', 
+    padding: '2px 10px', 
+  },
 }));
 
-const ImageWithText = ({ src, smallSrc, text, isHovered }) => {
-  const isSmallScreen = useMediaQuery((theme) => theme.breakpoints.down('sm'));
+const ImageWithText = ({ src, text, isHovered }) => {
 
   return (
     <Box
@@ -58,7 +55,7 @@ const ImageWithText = ({ src, smallSrc, text, isHovered }) => {
       }}
     >
       <img
-        src={isSmallScreen ? smallSrc : src}
+        src={src}
         alt={text}
         style={{
           width: "100%",
