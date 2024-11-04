@@ -11,7 +11,6 @@ const OverlayText = styled(Box)(({ theme }) => ({
   backgroundColor: 'White',
   color: 'black',
   fontFamily: 'Roboto, sans-serif',
-  fontWeight: 'bold',
   fontSize: '1.8rem',
   zIndex: 1,
   display: 'flex',

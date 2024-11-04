@@ -4,25 +4,19 @@ import { Box, Button} from '@mui/material';
 
 const OverlayText = styled(Box)(({ theme }) => ({
   position: 'absolute',
-  top: 0, 
+  top: 0,
   left: 0,
-  right: 750,
-  bottom: 0, 
-  backgroundColor: 'White', 
-  color: 'black', 
+  right: 800,
+  bottom: 0,
+  backgroundColor: 'White',
+  color: 'black',
   fontFamily: 'Roboto, sans-serif',
-  fontWeight: 'bold',
-  fontSize: '1.8rem', 
+  fontSize: '1.8rem',
   zIndex: 1,
-  display: 'flex', 
+  display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  transition: 'opacity 0.5s ease-in-out', 
-  '@media (max-width: 768px)': {
-    fontSize: '0.8rem', 
-    right: 270,
-
-  },
+  transition: 'opacity 0.5s ease-in-out',
   
 }));
 const ButtonStyled = styled(Button)(({ theme }) => ({
@@ -66,7 +60,7 @@ const ImageWithText= ({ src, text, isHovered }) => {
           height: "auto", 
           maxWidth: "1600px", 
           transition: 'transform 0.5s ease-in-out', 
-          transform: isHovered ? 'translate(100px,  0)' : 'translate(0, 0)', 
+          transform: isHovered ? 'translate(300px,  0)' : 'translate(0, 0)', 
         
         }} 
       />

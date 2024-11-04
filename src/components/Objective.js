@@ -3,7 +3,7 @@ import { Box, useMediaQuery } from '@mui/material';
 import { styled } from '@mui/system';
 
 
-const OverlayText = styled(Box)(() => ({
+const OverlayText = styled(Box)(({ theme }) => ({
   position: 'absolute',
   top: 147, 
   left: 0,
@@ -12,14 +12,13 @@ const OverlayText = styled(Box)(() => ({
   backgroundColor: 'White', 
   color: 'black', 
   fontFamily: 'Roboto, sans-serif',
-  fontWeight: 'regular',
   fontSize: '1.3rem', 
   zIndex: 1,
   display: 'flex', 
   alignItems: 'center',
-  padding: '0 20px',
   justifyContent: 'center',
   transition: 'opacity 0.5s ease-in-out', 
+  
 }));
 
 const Objective = ({ src, smallSrc, text, isHovered }) => {
@@ -31,7 +30,7 @@ const Objective = ({ src, smallSrc, text, isHovered }) => {
         position: 'relative', 
         overflow: 'hidden', 
         textAlign: 'center',
-        margin: { xs: '15px', sm: '35px' },
+        margin: '28px'
       }}
     >
       <img 
