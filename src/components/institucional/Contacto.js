@@ -19,10 +19,10 @@ const Contacto = forwardRef((props, ref) => {
   return (
     <ThemeProvider theme={theme}>
       <section id="contacto" style={{ margin: "20px 0" }} ref={ref}>
-        <Container maxWidth="lg">
+        
           {/* Center the BUHeaderTitle */}
           <Box sx={{ display: 'flex', justifyContent: 'center', textAlign: 'center' }}>
-            <BUHeaderTitle text="CONTACTO" type={HeaderTypes.SECONDARY} />
+            <BUHeaderTitle text="CONTACTO" type={HeaderTypes.SECONDARY} marginTop="5em" />
           </Box>
 
           <Box
@@ -72,7 +72,7 @@ const Contacto = forwardRef((props, ref) => {
               fontFamily="Montserrat Alternates"
             />
           </Box>
-        </Container>
+        
       </section>
     </ThemeProvider>
   );

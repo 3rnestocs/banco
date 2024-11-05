@@ -5,20 +5,33 @@ import { Button, AppBar, Toolbar, IconButton, Box, useMediaQuery } from "@mui/ma
 import BUButton from "../BUButton";
 
 const BUNavbar = ({ serviciosRef, identidadRef, contactoRef }) => {
-  const handleScroll = (ref) => {
-    if (ref && ref.current) {
-      ref.current.scrollIntoView({ behavior: 'smooth' });
-    }
+  const [anchorEl, setAnchorEl] = useState(null);
+  const isSmallScreen = useMediaQuery((theme) => theme.breakpoints.down('sm')); // Detecta si es una pantalla pequeña
+
+  const handleMenuClick = (event) => {
+    setAnchorEl(event.currentTarget);
   };
 
-  const isSmallScreen = useMediaQuery((theme) => theme.breakpoints.down('sm'));
+  const handleMenuClose = () => {
+    setAnchorEl(null);
+  };
 
   return (
     <AppBar position="sticky" sx={{ backgroundColor: "white", width: "100%", boxShadow: "none" }}>
       <Toolbar sx={{ justifyContent: "space-between" }}>
         <Box sx={{ display: "flex", alignItems: "center" }}>
           <IconButton edge="start" color="inherit" aria-label="logo" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
-            <img id="img-logo" width="auto" src={logo} height={42} alt="Logo" />
+            <img
+              id="img-logo"
+              src={logo}
+              alt="Logo"
+              style={{
+                width: '100%',          
+                height: 'auto',         
+                maxWidth: '200px',      
+                maxHeight: 'auto',      
+              }}
+            />
           </IconButton>
         </Box>
 
@@ -44,13 +57,13 @@ const BUNavbar = ({ serviciosRef, identidadRef, contactoRef }) => {
                 }}
               >
                 <li className="nav-item custom-nav-item">
-                  <Button onClick={() => handleScroll(serviciosRef)}>Servicios</Button>
+                  <Button onClick={() => serviciosRef.current.scrollIntoView({ behavior: 'smooth' })}>Servicios</Button>
                 </li>
                 <li className="nav-item custom-nav-item">
-                  <Button onClick={() => handleScroll(identidadRef)}>Conócenos</Button>
+                  <Button onClick={() => identidadRef.current.scrollIntoView({ behavior: 'smooth' })}>Conócenos</Button>
                 </li>
                 <li className="nav-item custom-nav-item">
-                  <Button onClick={() => handleScroll(contactoRef)}>Contacto</Button>
+                  <Button onClick={() => contactoRef.current.scrollIntoView({ behavior: 'smooth' })}>Contacto</Button>
                 </li>
               </ul>
               <Link to="/login" style={{ marginLeft: '16px' }}>

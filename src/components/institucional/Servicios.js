@@ -76,7 +76,7 @@ const Servicios = forwardRef((props, ref) => {
       }}
       ref={ref}
     >
-      <BUHeaderTitle text="SERVICIOS" type={HeaderTypes.SECONDARY} />
+      <BUHeaderTitle text="SERVICIOS" type={HeaderTypes.SECONDARY} marginTop='0em' />
       <Box sx={{ display: { xs: "none", lg: "block" } }}>
         <ImageList rowHeight={'auto'} cols={4}>
           <ImageList cols={1}>

@@ -16,14 +16,14 @@ const BUFooter = () => {
       <Container maxWidth="lg" disableGutters sx={{ py: 4 }}>
         <Box
           sx={{
-            display: {xs:"block" ,lg:"flex"},
-            justifyContent: {xs:"center",lg:"space-between"},
-            alignItems: {xs:"center",lg:"flex-start"},
+            display: { xs: "block", lg: "flex" },
+            justifyContent: { xs: "center", lg: "space-between" },
+            alignItems: { xs: "center", lg: "flex-start" },
           }}
         >
           {/* Logo Área */}
           <Box
-            sx={{ display: "flex", alignItems: "center", mx: 4 , mb: { xs: 2, lg: 0 } }}
+            sx={{ display: "flex", alignItems: "center", mx: 4, mb: { xs: 2, lg: 0 } }}
           >
             <img
               src={logo_white}
@@ -36,15 +36,15 @@ const BUFooter = () => {
           <Box sx={{ mb: { xs: 2, lg: 0 }, flex: 1 }}>
             <Box sx={{ display: "flex", alignItems: "center", mb: 1 }}>
               <img src={iconMail} alt="Email" style={{ marginRight: 8 }} />
-              <Typography sx={{color:"white"}}>info@bancouniversitario.com.ve</Typography>
+              <Typography sx={{ color: "white" }}>info@bancouniversitario.com.ve</Typography>
             </Box>
             <Box sx={{ display: "flex", alignItems: "center", mb: 1 }}>
               <img src={iconPhone} alt="Teléfono" style={{ marginRight: 8 }} />
-              <Typography sx={{color:"white"}}>+58 212-555-5555</Typography>
+              <Typography sx={{ color: "white" }}>+58 212-555-5555</Typography>
             </Box>
             <Box sx={{ display: "flex", alignItems: "center", mb: 1 }}>
               <img src={iconFax} alt="Fax" style={{ marginRight: 8 }} />
-              <Typography sx={{color:"white"}}>+58 212-555-5556</Typography>
+              <Typography sx={{ color: "white" }}>+58 212-555-5556</Typography>
             </Box>
             <Box sx={{ display: "flex", alignItems: "center", mb: 1 }}>
               <img
@@ -52,7 +52,7 @@ const BUFooter = () => {
                 alt="Ubicación"
                 style={{ marginRight: 8 }}
               />
-              <Typography sx={{color:"white"}}>
+              <Typography sx={{ color: "white" }}>
                 Av. Universidad, Edificio Banco Universitario, piso 12, Caracas,
                 Venezuela.
               </Typography>
@@ -76,57 +76,94 @@ const BUFooter = () => {
               display: { xs: "block", lg: "flex" },
               flexDirection: { xs: "column", lg: "row" },
               alignItems: { xs: "center", lg: "center" },
-              mt: 3, // Espacio superior para separar de la información de contacto
+              mt: 3,
             }}
           >
-            <Typography variant="h6" sx={
-              { color:"white", fontWeight: "bold", mb: 1, display: { xs: "block", lg: "none" } }
-              }>
+            <Typography
+              variant="h6"
+              sx={{ color: "white", fontWeight: "bold", mb: 1, display: { xs: "block", lg: "none" } }}
+            >
               Síguenos
             </Typography>
 
-            {/* Iconos en pantallas pequeñas */}
+            {/* Small screen icons */}
             <Box sx={{ display: { xs: "block", lg: "none" }, mb: 1 }}>
-              <IconButton>
+              <IconButton component="a" href="https://www.facebook.com/bancouniversitariove" target="_blank" rel="noopener noreferrer">
                 <img src={iconFb} alt="Facebook" />
               </IconButton>
-              <IconButton>
+              <IconButton component="a" href="https://www.twitter.com/bancouniversitariove" target="_blank" rel="noopener noreferrer">
                 <img src={iconTw} alt="Twitter" />
               </IconButton>
-              <IconButton>
+              <IconButton component="a" href="https://www.instagram.com/bancouniversitariove" target="_blank" rel="noopener noreferrer">
                 <img src={iconIg} alt="Instagram" />
               </IconButton>
             </Box>
-            <Typography
-              variant="caption"
-              sx={{ color:"white", display: { xs: "block", lg: "none" } }}
-            >
+            <Typography variant="caption" sx={{ color: "white", display: { xs: "block", lg: "none" } }}>
               @bancouniversitariove
             </Typography>
 
-            {/* Iconos y nombres en pantallas grandes */}
+            {/* Large screen icons and names */}
             <Box sx={{ display: { xs: "none", lg: "block" } }}>
               <Box sx={{ display: "flex", alignItems: "center", mb: 1 }}>
-                <IconButton>
+                <IconButton component="a" href="https://www.facebook.com/bancouniversitariove" target="_blank" rel="noopener noreferrer">
                   <img src={iconFb} alt="Facebook" />
                 </IconButton>
-                <Typography sx={{ ml: 1, color: "white" }}>
+                <Typography
+                  component="a"
+                  href="https://www.facebook.com/bancouniversitariove"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  sx={{
+                    ml: 1,
+                    color: "white",
+                    textDecoration: "none",
+                    "&:hover": {
+                      color: "lightgray",
+                    },
+                  }}
+                >
                   @bancouniversitariove
                 </Typography>
               </Box>
               <Box sx={{ display: "flex", alignItems: "center", mb: 1 }}>
-                <IconButton>
+                <IconButton component="a" href="https://www.twitter.com/bancouniversitariove" target="_blank" rel="noopener noreferrer">
                   <img src={iconTw} alt="Twitter" />
                 </IconButton>
-                <Typography sx={{ ml: 1, color: "white" }}>
+                <Typography
+                  component="a"
+                  href="https://www.twitter.com/bancouniversitariove"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  sx={{
+                    ml: 1,
+                    color: "white",
+                    textDecoration: "none",
+                    "&:hover": {
+                      color: "lightgray",
+                    },
+                  }}
+                >
                   @bancouniversitariove
                 </Typography>
               </Box>
               <Box sx={{ display: "flex", alignItems: "center" }}>
-                <IconButton>
+                <IconButton component="a" href="https://www.instagram.com/bancouniversitariove" target="_blank" rel="noopener noreferrer">
                   <img src={iconIg} alt="Instagram" />
                 </IconButton>
-                <Typography sx={{ ml: 1, color: "white" }}>
+                <Typography
+                  component="a"
+                  href="https://www.instagram.com/bancouniversitariove"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  sx={{
+                    ml: 1,
+                    color: "white",
+                    textDecoration: "none",
+                    "&:hover": {
+                      color: "lightgray",
+                    },
+                  }}
+                >
                   @bancouniversitariove
                 </Typography>
               </Box>
@@ -136,17 +173,17 @@ const BUFooter = () => {
       </Container>
 
       {/* Derechos de Autor */}
-      
-      <Box sx={{ bgcolor: "#085F63", display: "row" , alignItems: "center", py: 2 }}>
-        <Box  sx={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}>
-        <img src={favicon}  alt="Favicon"  />
-        <Typography sx={{color: "white"}} variant="body2">
-          Derechos protegidos por Banco Universitario | 2024
-        </Typography>
+
+      <Box sx={{ bgcolor: "#085F63", display: "row", alignItems: "center", py: 2 }}>
+        <Box sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}>
+          <img src={favicon} alt="Favicon" />
+          <Typography sx={{ color: "white" }} variant="body2">
+            Derechos protegidos por Banco Universitario | 2024
+          </Typography>
         </Box>
       </Box>
     </Box>

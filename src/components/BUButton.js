@@ -34,6 +34,10 @@ const BUButton = ({
         '&:hover': {
           backgroundColor: applyOpacity(bgColor, 0.5), // Slightly transparent on hover
         },
+        '@media (min-width: 100px) and (max-width: 600px)': {
+          fontSize: '1rem', 
+          padding: '5px 16px', 
+        },
       }}
     >
       {text}
