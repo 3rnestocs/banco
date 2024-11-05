@@ -50,7 +50,7 @@ const ImageWithText = ({ src, text, isHovered }) => {
         position: 'relative',
         overflow: 'hidden',
         textAlign: 'center',
-        margin: { xs: '10px', sm: '20px' },
+        margin: { xs: '25px', sm: '28px' },
       }}
     >
       <img

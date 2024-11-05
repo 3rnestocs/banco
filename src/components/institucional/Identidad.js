@@ -40,7 +40,9 @@ const Identidad = forwardRef((props, ref) => {
     <div id="container-identidad" className="container-fluid m-0">
       <Box
         id="container-identidad"
-        sx={{ bgcolor: "background.default", m: 0, p: 5 }}
+        sx={{ bgcolor: "background.default",
+        m: -5, 
+        p: 5}}
         ref={ref}
       >
         <Box sx={{ margin: theme => theme.spacing(1) }}>
@@ -74,7 +76,11 @@ const Identidad = forwardRef((props, ref) => {
           </Box>
 
           {/* Pantallas pequeñas mision y vision */}
-          <Box sx={{ display: { xs: "block", lg: "none" }, textAlign: "center"}}>
+          <Box sx={{ 
+            display: { xs: "block", lg: "none" }, 
+            textAlign: "center",
+                       }}>
+            
             <ImageTextMision src={MisionVision[0].smallSrc} text={MisionVision[0].text} isHovered={false} />
             <ImageTextVision src={MisionVision[1].smallSrc} text={MisionVision[1].text} isHovered={false} />
           </Box>
@@ -110,7 +116,7 @@ const Identidad = forwardRef((props, ref) => {
           </Box>
 
           {/* Pantallas pequeñas objetivos*/}
-          <Box sx={{ display: { xs: "flex", lg: "none" }, flexDirection: "column", alignItems: "center" }}>
+          <Box sx={{ display: { xs: "flex", lg: "none" }, flexDirection: "column", alignItems: "center"}}>
           {objetivos.map((obj, index) => (
           <Box key={index} sx={{ width: "100%", margin: "-20px" }}> {/* Ajusta el margin aquí */}
           <Objective 
