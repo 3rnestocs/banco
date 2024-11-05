@@ -1,0 +1,32 @@
+.imageContainer {
+  position: relative;
+  width: 100%; /* Asegúrate de que el contenedor tenga el mismo ancho que la imagen */
+  overflow: hidden; /* Evitar que cualquier elemento hijo sobresalga del contenedor */
+  height: 100%;
+  cursor: pointer; /* Cambiar a puntero al pasar el cursor */
+}
+
+.im-end {
+  height: 75% !important;
+}
+
+.imageContainer img {
+  width: 100%;
+  height: 100% !important; /* Asegura que la imagen ocupe todo el contenedor */
+  object-fit: cover; /* Ajusta cómo se escala la imagen para ocupar el contenedor sin distorsionarse */
+  display: block; /* Evita el espacio en la parte inferior de la imagen */
+}
+
+.container-responsive img {
+  height: 80px !important;
+}
+
+.imageText {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centrando el texto */
+  color: white; /* Cambiar el color según sea necesario */
+  border-radius: 5px; /* Bordes redondeados si lo deseas */
+  text-align: center; /* Centrado del texto */
+}
