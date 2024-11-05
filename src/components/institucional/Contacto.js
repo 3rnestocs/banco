@@ -22,7 +22,7 @@ const Contacto = forwardRef((props, ref) => {
         
           {/* Center the BUHeaderTitle */}
           <Box sx={{ display: 'flex', justifyContent: 'center', textAlign: 'center' }}>
-            <BUHeaderTitle text="CONTACTO" type={HeaderTypes.SECONDARY} />
+            <BUHeaderTitle text="CONTACTO" type={HeaderTypes.SECONDARY} marginTop="5em" />
           </Box>
 
           <Box
