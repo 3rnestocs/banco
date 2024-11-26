@@ -50,8 +50,8 @@ const BUTextField = ({
                     break;
                 case 'password':
                 case 'confirmPassword':
-                    setError(value.length < 6); // Simple password length validation
-                    setHelperText(value.length < 6 ? 'La contraseña debe tener al menos 6 caracteres' : '');
+                    setError(value.length < 8); // Simple password length validation
+                    setHelperText(value.length < 8 ? 'La contraseña debe tener al menos 8 caracteres' : '');
                     break;
                 case 'phone':
                     const phonePattern = /^[0-9]{10,15}$/;
