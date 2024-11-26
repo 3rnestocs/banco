@@ -41,7 +41,6 @@ const Identidad = forwardRef((props, ref) => {
       id="container-identidad"
       sx={{
         bgcolor: "background.default",
-        m: -5,
         p: 5
       }}
       ref={ref}
