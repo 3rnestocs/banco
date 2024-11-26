@@ -66,7 +66,7 @@ const Login = () => {
   useEffect(() => {
     // Navigate to the dashboard if the user is logged in
     if (isLogged) {
-      navigate('/movements');
+      navigate('/dashboard');
     }
   }, [isLogged, navigate]);
 
