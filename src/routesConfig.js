@@ -5,6 +5,7 @@ import Servicios from "./components/institucional/Servicios";
 import Identidad from "./components/institucional/Identidad";
 import Contacto from "./components/institucional/Contacto";
 import Institucional from "./routes/institucional/Institucional";
+import Dashboard from "./routes/Dashboard/Dashboard"
 
 // const isAuthenticated = true; // Replace with real authentication logic
 
@@ -36,7 +37,10 @@ export const routesConfig = [
         component: <Register />,
 
         // component: isAuthenticated ? <Dashboard /> : <Redirect to="/login" />,
+    },
+    {
+        path: "/dashboard",
+        component: <Dashboard/>,
     }
-    
 
 ];

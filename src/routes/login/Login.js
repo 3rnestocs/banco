@@ -80,9 +80,11 @@ const Login = () => {
               />
 
               {/* Submit Button */}
+              <Link to="/dashboard">
               <Button fullWidth type="submit" variant="contained" color="primary" sx={{ mt: 4 }}>
                 Iniciar sesión
               </Button>
+              </Link>
             </Stack>
           </form>
 
