@@ -17,6 +17,7 @@ const OverlayText = styled(Box)(({ theme }) => ({
   alignItems: 'center',
   justifyContent: 'center',
   transition: 'opacity 0.5s ease-in-out',
+  padding: '20px',
 
 }));
 

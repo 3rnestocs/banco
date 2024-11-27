@@ -17,7 +17,7 @@ const OverlayText = styled(Box)(({ theme }) => ({
   alignItems: 'center',
   justifyContent: 'center',
   transition: 'opacity 0.5s ease-in-out',
-  
+  padding: '20px',
 }));
 const ButtonStyled = styled(Button)(({ theme }) => ({
   backgroundColor: 'rgba(255, 255, 255, 0.8)', // Fondo claro
