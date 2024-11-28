@@ -6,7 +6,7 @@ import Identidad from "./components/institucional/Identidad";
 import Contacto from "./components/institucional/Contacto";
 import Institucional from "./routes/institucional/Institucional";
 import Dashboard from "./routes/Dashboard/Dashboard"
-import Historial from "./components/Historial";
+
 
 // const isAuthenticated = true; // Replace with real authentication logic
 
@@ -43,9 +43,6 @@ export const routesConfig = [
         path: "/dashboard",
         component: <Dashboard/>,
     },
-    {
-        path: "/historial",
-        component: <Historial/>,
-    }
+
 
 ];
