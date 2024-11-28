@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   AppBar,
   Toolbar,
@@ -8,15 +8,20 @@ import {
   Popover,
   Stack,
 } from '@mui/material';
-import { Link } from 'react-router-dom';
 import SettingsIcon from '@mui/icons-material/Settings';
 import PersonIcon from '@mui/icons-material/Person';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
+import { useDispatch, useSelector } from 'react-redux';
+import { logout, selectIsLogged } from '../redux/user/userSlice';
+import { useNavigate } from 'react-router-dom';
 
 const NavbarDash = () => {
   const [anchorEl, setAnchorEl] = useState(null); // Controlar el popover
   const [open, setOpen] = useState(false);
   const [buttonClicked, setButtonClicked] = useState(false); // Estado para controlar si el popover está abierto o cerrado
+  const isLogged = useSelector(selectIsLogged);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget); // Al hacer clic, setea la posición del popover
@@ -33,6 +38,17 @@ const NavbarDash = () => {
     console.log('Ir al perfil del usuario');
     // Aquí puedes implementar la lógica para redirigir al perfil o mostrar la información
   };
+
+  const handleLogout = () => {
+    dispatch(logout()); // Llama a la acción de logout
+  };
+
+  useEffect(() => {
+    // Navigate to the dashboard if the user is logged in
+    if (!isLogged) {
+      navigate('/login');
+    }
+  }, [isLogged, navigate]);
 
   return (
     <Box sx={{ display: 'flex', height: '100vh' }}>
@@ -157,10 +173,11 @@ const NavbarDash = () => {
               Perfil
             </Button>
             
-            <Link to="/login" style={{ textDecoration: 'none' }}> {/* Se asegura que el link no tenga subrayado */}
+            {/* <Link to="/login" style={{ textDecoration: 'none' }}> Se asegura que el link no tenga subrayado */}
               <Button
                 variant="text"
                 color="error"
+                onClick={handleLogout}
                 sx={{
                   color: 'black', 
                   fontFamily: 'roboto',
@@ -180,7 +197,7 @@ const NavbarDash = () => {
                 <ExitToAppIcon sx={{ marginRight: '7px' , fontSize: '45px'}} />
                 Cerrar sesión
               </Button>
-            </Link>
+            {/* </Link> */}
           </Stack>
         </Box>
       </Popover>

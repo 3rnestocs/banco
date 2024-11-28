@@ -1,25 +1,81 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Box,
   Container,
   Button,
   Typography,
   Stack,
-  Divider
+  Divider,
+  Alert,
 } from '@mui/material';
 import BUTextField from '../../components/BUTextField';
 import { ThemeProvider } from '@mui/material/styles';
 import theme from '../../theme'; // Adjust the path to your theme file
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  login,
+  selectIsLogged,
+  selectUserErrorMessage,
+  selectUserLoading,
+} from '../../redux/user/userSlice';
+import { hasFieldsErrors, isObjNotEmpty } from '../../utils/formValidation';
+
+const DEFAULT_FORM = {
+  email: '',
+  password: '',
+};
+
+const FORM_VALIDATORS = {
+  email: ['required', 'email'],
+  password: ['required', { maxLength: 16 }],
+};
 
 const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [form, setForm] = useState(DEFAULT_FORM);
+  const [formErrors, setFormErrors] = useState(DEFAULT_FORM);
+  const [apiError, setApiError] = useState('');
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Login submitted', { email, password });
+  const isLogged = useSelector(selectIsLogged);
+  const userErrorMessage = useSelector(selectUserErrorMessage);
+  const userLoading = useSelector(selectUserLoading);
+
+  const handleChange = (field, value) => {
+    setForm((prevForm) => ({ ...prevForm, [field]: value }));
+    setFormErrors((prevErrors) => ({ ...prevErrors, [field]: null })); // Clear errors for this field
   };
+
+  const validateForm = () => {
+    const errors = hasFieldsErrors(form, FORM_VALIDATORS);
+    setFormErrors(errors);
+    return !isObjNotEmpty(errors);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setApiError(''); // Clear previous API error
+
+    if (!validateForm()) return; // Stop if validation fails
+
+    // Dispatch login action
+    dispatch(login(form));
+  };
+
+  useEffect(() => {
+    // Navigate to the dashboard if the user is logged in
+    if (isLogged) {
+      navigate('/dashboard');
+    }
+  }, [isLogged, navigate]);
+
+  useEffect(() => {
+    // Update API error message if present
+    if (userErrorMessage) {
+      setApiError(userErrorMessage);
+    }
+  }, [userErrorMessage]);
 
   return (
     <ThemeProvider theme={theme}>
@@ -63,28 +119,41 @@ const Login = () => {
                 Ingresa tus credenciales para continuar
               </Typography>
 
+              {/* Error Alert */}
+              {apiError && <Alert severity="error">{apiError}</Alert>}
+
               {/* Email field */}
               <BUTextField
                 fieldType="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                value={form.email}
+                onChange={(e) => handleChange('email', e.target.value)}
+                error={!!formErrors.email}
+                helperText={formErrors.email}
                 required
               />
 
               {/* Password field */}
               <BUTextField
                 fieldType="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                value={form.password}
+                onChange={(e) => handleChange('password', e.target.value)}
+                error={!!formErrors.password}
+                helperText={formErrors.password}
                 required
               />
 
               {/* Submit Button */}
-              <Link to="/dashboard">
-              <Button fullWidth type="submit" variant="contained" color="primary" sx={{ mt: 4 }}>
-                Iniciar sesión
+              <Button
+                fullWidth
+                type="submit"
+                variant="contained"
+                color="primary"
+                sx={{ mt: 4 }}
+                disabled={userLoading}
+              >
+                {userLoading ? 'Cargando...' : 'Iniciar sesión'}
               </Button>
-              </Link>
+              {/* </Link> */}
             </Stack>
           </form>
 
@@ -98,7 +167,12 @@ const Login = () => {
           </Link>
 
           {/* Footer */}
-          <Typography variant="body2" align="center" color="textSecondary" sx={{ mt: 3, mb: 3 }}>
+          <Typography
+            variant="body2"
+            align="center"
+            color="textSecondary"
+            sx={{ mt: 3, mb: 3 }}
+          >
             Banco Universitario © | 2024
           </Typography>
         </Container>
