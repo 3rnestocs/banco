@@ -1,29 +1,44 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Box, Typography, Divider, Pagination } from '@mui/material';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
+import { getMovementsAPI } from '../api/modules/movement'; 
 
-const Movements = ({ onClose }) => { // Recibe la función onClose
-  // Lista completa de movimientos
-  const allMovements = [
-    { id: 1, type: 'Pago móvil', reference: '04014145245847853652', amount: 320.25, date: '10 de enero, 2024', isPositive: true },
-    { id: 2, type: 'Pago móvil', reference: '04014145245847853652', amount: 255.57, date: '10 de enero, 2024', isPositive: false },
-    { id: 3, type: 'Pago móvil', reference: '04014145245847853652', amount: 100.75, date: '10 de enero, 2024', isPositive: true },
-    { id: 4, type: 'Pago móvil', reference: '04014145245847853652', amount: 150.00, date: '08 de enero, 2024', isPositive: false },
-    { id: 5, type: 'Pago móvil', reference: '04014145245847853652', amount: 200.10, date: '08 de enero, 2024', isPositive: true },
-    { id: 6, type: 'Pago móvil', reference: '04014145245847853652', amount: 175.00, date: '30 de diciembre, 2023', isPositive: false },
-    { id: 7, type: 'Pago móvil', reference: '04014145245847853652', amount: 190.25, date: '29 de diciembre, 2023', isPositive: true },
-    { id: 8, type: 'Pago móvil', reference: '04014145245847853652', amount: 310.00, date: '28 de diciembre, 2023', isPositive: false },
-  ];
+const Movements = ({ onClose }) => {
+  const itemsPerPage = 10; // Number of items per page
+  const [currentPage, setCurrentPage] = useState(1); // Current page
+  const [movements, setMovements] = useState([]); // Movements data
+  const [totalPages, setTotalPages] = useState(1); // Total number of pages
+  const [loading, setLoading] = useState(false); // Loading state
+  const [error, setError] = useState(''); // Error message
 
-  const itemsPerPage = 5;
-  const [currentPage, setCurrentPage] = useState(1);
+  // Fetch movements data when the component mounts or the page changes
+  useEffect(() => {
+    const fetchMovements = async () => {
+      setLoading(true);
+      setError('');
+      try {
+        const pagination = { page: currentPage, limit: itemsPerPage };
+        const response = await getMovementsAPI(pagination);
 
-  const displayedMovements = allMovements.slice(
-    (currentPage - 1) * itemsPerPage,
-    currentPage * itemsPerPage
-  );
+        // Check for a valid response
+        if (response && response.data) {
+          setMovements(response.data); // Map directly from `data` array
+          setTotalPages(Math.ceil(response.data.length / itemsPerPage)); // Update pages
+        } else {
+          setError(response.message || 'Error fetching movements.');
+        }
+      } catch (err) {
+        setError('Failed to fetch movements. Please try again.');
+      } finally {
+        setLoading(false);
+      }
+    };
 
+    fetchMovements();
+  }, [currentPage]);
+
+  // Handle page change
   const handleChangePage = (event, value) => {
     setCurrentPage(value);
   };
@@ -57,62 +72,85 @@ const Movements = ({ onClose }) => { // Recibe la función onClose
           Operaciones
         </Typography>
 
-        {displayedMovements.map((movement, index) => (
-          <React.Fragment key={movement.id}>
-            <Box
-              sx={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'flex-start',
-                padding: '10px 0',
-              }}
-            >
-              <Box>
-                <Typography variant="body1" sx={{ color: 'gray' }}>
-                  {movement.type}
-                </Typography>
-                <Typography variant="body2" sx={{ color: movement.isPositive ? 'green' : 'red', marginTop: '5px' }}>
-                  {movement.reference}
-                </Typography>
-              </Box>
-              <Box sx={{ textAlign: 'right' }}>
-                <Typography
-                  variant="body2"
-                  sx={{
-                    color: 'black',
-                    fontWeight: 'normal',
-                    display: 'flex',
-                    justifyContent: 'flex-end',
-                    alignItems: 'center',
-                  }}
-                >
-                  Bs. {movement.amount.toFixed(2)}
-                  {movement.isPositive ? (
-                    <ArrowUpwardIcon sx={{ color: 'green', fontSize: '20px' }} />
-                  ) : (
-                    <ArrowDownwardIcon sx={{ color: 'red', fontSize: '20px' }} />
-                  )}
-                </Typography>
-                <Typography variant="body1" sx={{ color: 'gray', fontSize: '14px' }}>
-                  {movement.date}
-                </Typography>
-              </Box>
-            </Box>
+        {/* Loading State */}
+        {loading && <Typography variant="body1">Cargando movimientos...</Typography>}
 
-            {/* Divider entre cada movimiento */}
-            {index < displayedMovements.length - 1 && (
-              <Divider sx={{ borderColor: '#49BEB7', borderWidth: '1px' }} />
-            )}
-          </React.Fragment>
-        ))}
+        {/* Error State */}
+        {error && (
+          <Typography variant="body1" color="error">
+            {error}
+          </Typography>
+        )}
+
+        {/* Display Movements */}
+        {!loading &&
+          !error &&
+          movements.slice(
+            (currentPage - 1) * itemsPerPage,
+            currentPage * itemsPerPage
+          ).map((movement, index) => (
+            <React.Fragment key={movement.id}>
+              <Box
+                sx={{
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'flex-start',
+                  padding: '10px 0',
+                }}
+              >
+                <Box>
+                  <Typography variant="body1" sx={{ color: 'gray' }}>
+                    {movement.description || 'Operación'}
+                  </Typography>
+                  <Typography
+                    variant="body2"
+                    sx={{ color: movement.multiplier > 0 ? 'green' : 'red', marginTop: '5px' }}
+                  >
+                    ID: {movement.id}
+                  </Typography>
+                </Box>
+                <Box sx={{ textAlign: 'right' }}>
+                  <Typography
+                    variant="body2"
+                    sx={{
+                      color: 'black',
+                      fontWeight: 'normal',
+                      display: 'flex',
+                      justifyContent: 'flex-end',
+                      alignItems: 'center',
+                    }}
+                  >
+                    Bs. {movement.amount?.toFixed(2) || '0.00'}
+                    {movement.multiplier > 0 ? (
+                      <ArrowUpwardIcon sx={{ color: 'green', fontSize: '20px' }} />
+                    ) : (
+                      <ArrowDownwardIcon sx={{ color: 'red', fontSize: '20px' }} />
+                    )}
+                  </Typography>
+                  <Typography variant="body1" sx={{ color: 'gray', fontSize: '14px' }}>
+                    {new Date(movement.created_at).toLocaleDateString('es-VE', {
+                      year: 'numeric',
+                      month: 'long',
+                      day: 'numeric',
+                    })}
+                  </Typography>
+                </Box>
+              </Box>
+
+              {/* Divider between each movement */}
+              {index < movements.length - 1 && (
+                <Divider sx={{ borderColor: '#49BEB7', borderWidth: '1px' }} />
+              )}
+            </React.Fragment>
+          ))}
       </Box>
 
-      <Divider sx={{ borderColor: '#8dd7d2', borderWidth: '1px', marginBottom: '320px' }} />
+      <Divider sx={{ borderColor: '#8dd7d2', borderWidth: '1px', marginBottom: '24px' }} />
 
-      {/* Paginación */}
+      {/* Pagination */}
       <Box sx={{ display: 'flex', justifyContent: 'center' }}>
         <Pagination
-          count={Math.ceil(allMovements.length / itemsPerPage)}
+          count={totalPages}
           page={currentPage}
           onChange={handleChangePage}
           shape="rounded"

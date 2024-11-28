@@ -12,39 +12,50 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import PersonIcon from '@mui/icons-material/Person';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import { useDispatch, useSelector } from 'react-redux';
-import { logout, selectIsLogged } from '../redux/user/userSlice';
+import { logout, selectIsLogged, selectUserLogged } from '../redux/user/userSlice';
 import { useNavigate } from 'react-router-dom';
 
 const NavbarDash = () => {
-  const [anchorEl, setAnchorEl] = useState(null); // Controlar el popover
+  const [anchorEl, setAnchorEl] = useState(null); // Control the popover
   const [open, setOpen] = useState(false);
-  const [buttonClicked, setButtonClicked] = useState(false); // Estado para controlar si el popover está abierto o cerrado
+  const [buttonClicked, setButtonClicked] = useState(false); // State to control popover visibility
+
   const isLogged = useSelector(selectIsLogged);
+  const user = useSelector(selectUserLogged); // Get user info from Redux store
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  // Compute initials based on the first and last name
+  const getInitials = (firstName, lastName) => {
+    const firstInitial = firstName?.charAt(0).toUpperCase() || '';
+    const lastInitial = lastName?.charAt(0).toUpperCase() || '';
+    return `${firstInitial}${lastInitial}`;
+  };
+
+  const initials = getInitials(user.first_name, user.last_name);
+
   const handleClick = (event) => {
-    setAnchorEl(event.currentTarget); // Al hacer clic, setea la posición del popover
-    setOpen(true); // Abre el popover
-    setButtonClicked(true); // Marca el botón como "clickeado"
+    setAnchorEl(event.currentTarget); // Set popover position
+    setOpen(true); // Open popover
+    setButtonClicked(true); // Mark button as "clicked"
   };
 
   const handleClose = () => {
-    setOpen(false); // Cierra el popover
-    setButtonClicked(false); // Restablece el estado de "clickeado" cuando se cierra
+    setOpen(false); // Close popover
+    setButtonClicked(false); // Reset button state
   };
 
   const handleProfileClick = () => {
-    console.log('Ir al perfil del usuario');
-    // Aquí puedes implementar la lógica para redirigir al perfil o mostrar la información
+    console.log('Go to user profile');
+    // Add logic to navigate to profile
   };
 
   const handleLogout = () => {
-    dispatch(logout()); // Llama a la acción de logout
+    dispatch(logout()); // Dispatch logout action
   };
 
   useEffect(() => {
-    // Navigate to the dashboard if the user is logged in
+    // Navigate to the login page if the user is not logged in
     if (!isLogged) {
       navigate('/login');
     }
@@ -58,13 +69,13 @@ const NavbarDash = () => {
           <img
             src="https://3rnestocs.github.io/banco/logo.png"
             alt="Banco Universitario"
-            style={{ height: '40px', marginRight: '16px',  marginTop: '8px' }}
+            style={{ height: '40px', marginRight: '16px', marginTop: '8px' }}
           />
 
           <Button
             variant="contained"
             sx={{
-              backgroundColor: buttonClicked ? '#B6E5E2' : '#EEF2F6', // Color del botón cuando está clickeado
+              backgroundColor: buttonClicked ? '#B6E5E2' : '#EEF2F6', // Button color when clicked
               borderRadius: '30px',
               width: '105px',
               height: '55px',
@@ -75,10 +86,10 @@ const NavbarDash = () => {
               position: 'relative',
               mt: 3,
               '&:hover': {
-                backgroundColor: '#B6E5E2', // Color hover
+                backgroundColor: '#B6E5E2', // Hover color
               },
             }}
-            onClick={handleClick} // Abre el popover al hacer clic
+            onClick={handleClick} // Open popover on click
           >
             <Typography
               variant="h6"
@@ -91,7 +102,7 @@ const NavbarDash = () => {
                 fontFamily: "'Montserrat Alternates', sans-serif",
               }}
             >
-              JD
+              {initials || 'JD'} {/* Display initials */}
             </Typography>
 
             {/* Settings Icon */}
@@ -115,26 +126,34 @@ const NavbarDash = () => {
         }}
         sx={{
           marginTop: '20px',
-          
         }}
       >
         <Box sx={{ p: 2, width: '400px' }}>
-          <Typography variant="h5" sx={{
-             fontWeight: 'bold', 
-             color: 'black', 
-             fontFamily: "'Montserrat Alternates', sans-serif" ,
-             }}>
-            Buen dia, <span style={{ fontWeight: 'normal' }}>John Doe</span>
+          <Typography
+            variant="h5"
+            sx={{
+              fontWeight: 'bold',
+              color: 'black',
+              fontFamily: "'Montserrat Alternates', sans-serif",
+            }}
+          >
+            Buen día,{' '}
+            <span style={{ fontWeight: 'normal' }}>
+              {user.first_name || 'John'} {user.last_name || 'Doe'}
+            </span>
           </Typography>
-          <Typography variant="caption" color="text.secondary"
-          sx={{
-      
-            fontSize: '15px',  
-          }}>
-          Usuario</Typography>
+          <Typography
+            variant="caption"
+            color="text.secondary"
+            sx={{
+              fontSize: '15px',
+            }}
+          >
+            Usuario
+          </Typography>
 
           <Box sx={{ borderBottom: '1px solid #ddd', mb: 2 }} />
-          
+
           {/* Action Buttons */}
           <Stack spacing={1}>
             <Button
@@ -142,20 +161,20 @@ const NavbarDash = () => {
               onClick={handleProfileClick}
               color="error"
               sx={{
-                color: 'black', 
+                color: 'black',
                 fontFamily: 'roboto',
                 fontSize: '18px',
                 fontWeight: 'normal',
                 justifyContent: 'flex-start',
-                display: 'flex', 
-                alignItems: 'center', 
+                display: 'flex',
+                alignItems: 'center',
                 '&:hover': {
-                  color: '#397F82', 
-                  backgroundColor: '#E2F5F3', // Fondo cuando pasa el mouse
+                  color: '#397F82',
+                  backgroundColor: '#E2F5F3', // Hover background
                 },
               }}
             >
-              {/* Icono de perfil con color negro */}
+              {/* Profile Icon */}
               <Box
                 sx={{
                   borderRadius: '50%',
@@ -164,7 +183,6 @@ const NavbarDash = () => {
                   marginRight: '10px',
                   '&:hover': {
                     color: '#397F82',
-                    
                   },
                 }}
               >
@@ -172,32 +190,29 @@ const NavbarDash = () => {
               </Box>
               Perfil
             </Button>
-            
-            {/* <Link to="/login" style={{ textDecoration: 'none' }}> Se asegura que el link no tenga subrayado */}
-              <Button
-                variant="text"
-                color="error"
-                onClick={handleLogout}
-                sx={{
-                  color: 'black', 
-                  fontFamily: 'roboto',
-                  fontSize: '18px',
-                  fontWeight: 'normal',
-                  justifyContent: 'flex-start',
-                  display: 'flex',
-                  alignItems: 'center', 
-                  width: '100%',
-                  '&:hover': {
-                    color: '#397F82', // Color verde cuando pasa el mouse
-                    backgroundColor: '#E2F5F3', // Fondo cuando pasa el mouse
-                  },
-                }}
-              >
-                
-                <ExitToAppIcon sx={{ marginRight: '7px' , fontSize: '45px'}} />
-                Cerrar sesión
-              </Button>
-            {/* </Link> */}
+
+            <Button
+              variant="text"
+              color="error"
+              onClick={handleLogout}
+              sx={{
+                color: 'black',
+                fontFamily: 'roboto',
+                fontSize: '18px',
+                fontWeight: 'normal',
+                justifyContent: 'flex-start',
+                display: 'flex',
+                alignItems: 'center',
+                width: '100%',
+                '&:hover': {
+                  color: '#397F82',
+                  backgroundColor: '#E2F5F3',
+                },
+              }}
+            >
+              <ExitToAppIcon sx={{ marginRight: '7px', fontSize: '45px' }} />
+              Cerrar sesión
+            </Button>
           </Stack>
         </Box>
       </Popover>
