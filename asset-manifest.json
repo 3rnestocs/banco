@@ -1,15 +1,11 @@
 {
   "files": {
     "main.css": "/banco/static/css/main.79c7a654.css",
-    "main.js": "/banco/static/js/main.31713d6a.js",
+    "main.js": "/banco/static/js/main.19f09c43.js",
     "static/media/carousel4.png": "/banco/static/media/carousel4.2339ab58340d37bdabe2.png",
     "static/media/carousel1.png": "/banco/static/media/carousel1.f55296fce490daaa14ec.png",
     "static/media/carousel2.png": "/banco/static/media/carousel2.702747c602f98740448d.png",
     "static/media/carousel3.png": "/banco/static/media/carousel3.0052cc12ffe2b848c7bd.png",
-    "static/media/imgVisio.png": "/banco/static/media/imgVisio.1a667ef0c035dcb6e30a.png",
-    "static/media/imgMision.png": "/banco/static/media/imgMision.e3abb8beb4730c066195.png",
-    "static/media/imgMision2.png": "/banco/static/media/imgMision2.be17f929b3f36a2f18a2.png",
-    "static/media/imgVision2.png": "/banco/static/media/imgVision2.396a6e38bc87b6325dab.png",
     "static/media/ObjSmall5.png": "/banco/static/media/ObjSmall5.318644548cccf7f0fa38.png",
     "static/media/fondoIdentidad.png": "/banco/static/media/fondoIdentidad.32fac009025174745b73.png",
     "static/media/obj5.png": "/banco/static/media/obj5.c1ae5f3f1ae42b5c37ff.png",
@@ -39,10 +35,10 @@
     "static/media/favicon.ico": "/banco/static/media/favicon.00ea4dc3c2f6285329c1.ico",
     "index.html": "/banco/index.html",
     "main.79c7a654.css.map": "/banco/static/css/main.79c7a654.css.map",
-    "main.31713d6a.js.map": "/banco/static/js/main.31713d6a.js.map"
+    "main.19f09c43.js.map": "/banco/static/js/main.19f09c43.js.map"
   },
   "entrypoints": [
     "static/css/main.79c7a654.css",
-    "static/js/main.31713d6a.js"
+    "static/js/main.19f09c43.js"
   ]
 }
