@@ -1,25 +1,106 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button, Container, Box, Typography, Divider, Stack } from '@mui/material';
 import { ThemeProvider } from '@mui/system';
 import BUTextField from '../../components/BUTextField';
 import theme from '../../theme'; // Adjust the path to your theme file
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { DatePicker } from '@mui/x-date-pickers';
+import { hasFieldsErrors, isObjNotEmpty } from '../../utils/formValidation';
+import { registerAPI } from '../../api/modules/user'; // Import the registerAPI function
+
+const DEFAULT_FORM = {
+    first_name: '',
+    last_name: '',
+    document_number: '',
+    phone_number: '',
+    birth_date: null,
+    email: '',
+    password: '',
+    confirmPassword: '',
+};
+
+const FORM_VALIDATORS = {
+    first_name: ['required'],
+    last_name: ['required'],
+    document_number: ['required'],
+    phone_number: ['required'],
+    birth_date: ['required'],
+    email: ['required', 'email'],
+    password: ['required', { maxLength: 16 }],
+    confirmPassword: ['required'],
+};
 
 const Register = () => {
-    const [name, setName] = useState('');
-    const [lastname, setLastname] = useState('');
-    const [document, setDocument] = useState('');
-    const [phone, setPhone] = useState('');
-    const [date, setDate] = useState(null); // or use null
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [confirmPassword, setConfirmPassword] = useState('');
+    const [form, setForm] = useState(DEFAULT_FORM);
+    const [formErrors, setFormErrors] = useState(DEFAULT_FORM);
+    const [apiError, setApiError] = useState('');
+    const [loading, setLoading] = useState(false);
+    const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log('Register submitted', { name, lastname, document, phone, date, email, password, confirmPassword });
+    const handleChange = (field, value) => {
+        setForm((prevForm) => ({ ...prevForm, [field]: value }));
+        setFormErrors((prevErrors) => ({ ...prevErrors, [field]: null })); // Clear errors for this field
     };
+
+    const validateForm = () => {
+        // Perform form validation
+        const errors = hasFieldsErrors(form, FORM_VALIDATORS);
+        setFormErrors(errors);
+        return !isObjNotEmpty(errors); // If there are no errors, return true
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setApiError(''); // Clear previous API error
+    
+        // Basic validation for matching passwords
+        if (form.password !== form.confirmPassword) {
+            setApiError('Las contraseñas no coinciden');
+            return;
+        }
+    
+        // Clear any previous error message
+        setApiError('');
+        setLoading(true);
+    
+        // Validate form fields
+        if (!validateForm()) return; // Stop if validation fails
+    
+        try {
+            // Register data
+            const registrationData = {
+                first_name: form.first_name,
+                last_name: form.last_name,
+                document_number: form.document_number,
+                phone_number: form.phone_number,
+                birth_date: form.birth_date,
+                email: form.email,
+                password: form.password,
+            };
+    
+            // Call the registerAPI to register the user
+            const response = await registerAPI(registrationData);
+    
+            // If the errors array is empty, registration was successful
+            if (response.errors && response.errors.length === 0) {
+                // Navigate to login page after successful registration
+                navigate('/dashboard');
+            } else {
+                // If there are errors, set the first error message
+                setApiError(response.message || 'Ocurrió un error al registrar al usuario.');
+            }
+        } catch (error) {
+            setApiError('Error en el registro. Por favor, intenta de nuevo.');
+        } finally {
+            setLoading(false);
+        }
+    };
+    
+
+    useEffect(() => {
+        // Optionally, you can check if the user is already logged in
+        // If logged in, redirect to dashboard or login page
+    }, []);
 
     return (
         <ThemeProvider theme={theme}>
@@ -64,19 +145,18 @@ const Register = () => {
 
                             <Stack direction="row" spacing={2}>
                                 {/* Name field */}
-                                {/* Name field */}
                                 <BUTextField
                                     fieldType="name"
-                                    value={name}
-                                    onChange={(e) => setName(e.target.value)}
+                                    value={form.first_name}
+                                    onChange={(e) => handleChange('first_name', e.target.value)}
                                     required
                                 />
 
                                 {/* Lastname field */}
                                 <BUTextField
                                     fieldType="lastname"
-                                    value={lastname}
-                                    onChange={(e) => setLastname(e.target.value)}
+                                    value={form.last_name}
+                                    onChange={(e) => handleChange('last_name', e.target.value)}
                                     required
                                 />
                             </Stack>
@@ -85,16 +165,16 @@ const Register = () => {
                                 {/* Document field */}
                                 <BUTextField
                                     fieldType="document"
-                                    value={document}
-                                    onChange={(e) => setDocument(e.target.value)}
+                                    value={form.document_number}
+                                    onChange={(e) => handleChange('document_number', e.target.value)}
                                     required
                                 />
 
                                 {/* Phone field */}
                                 <BUTextField
                                     fieldType="phone"
-                                    value={phone}
-                                    onChange={(e) => setPhone(e.target.value)}
+                                    value={form.phone_number}
+                                    onChange={(e) => handleChange('phone_number', e.target.value)}
                                     required
                                 />
                             </Stack>
@@ -102,8 +182,8 @@ const Register = () => {
                             {/* Date Picker Field */}
                             <DatePicker
                                 label="Fecha de nacimiento"
-                                value={date}
-                                onChange={(newValue) => setDate(newValue)}
+                                value={form.birth_date}
+                                onChange={(newValue) => handleChange('birth_date', newValue)}
                                 sx={{
                                     width: "100%",
                                 }}
@@ -112,35 +192,41 @@ const Register = () => {
                             {/* Email field */}
                             <BUTextField
                                 fieldType="email"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
+                                value={form.email}
+                                onChange={(e) => handleChange('email', e.target.value)}
                                 required
                             />
 
                             {/* Password field */}
                             <BUTextField
                                 fieldType="password"
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
+                                value={form.password}
+                                onChange={(e) => handleChange('password', e.target.value)}
                                 required
                             />
 
                             {/* Confirm password with custom validation */}
                             <BUTextField
                                 fieldType="confirmPassword"
-                                value={confirmPassword}
-                                onChange={(e) => setConfirmPassword(e.target.value)}
+                                value={form.confirmPassword}
+                                onChange={(e) => handleChange('confirmPassword', e.target.value)}
                                 required
                                 customValidationFn={(value) => ({
-                                    isValid: value === password,
-                                    message: value !== password ? 'Las contraseñas no coinciden' : '',
+                                    isValid: value === form.password,
+                                    message: value !== form.password ? 'Las contraseñas no coinciden' : '',
                                 })}
                             />
 
                             {/* Register button */}
-                            <Button type="submit" variant="contained" color="primary" sx={{ mt: 4 }}>
-                                Registrarse
+                            <Button type="submit" variant="contained" color="primary" sx={{ mt: 4 }} disabled={loading}>
+                                {loading ? 'Registrando...' : 'Registrarse'}
                             </Button>
+
+                            {apiError && (
+                                <Typography color="error" sx={{ textAlign: 'center', mt: 2 }}>
+                                    {apiError}
+                                </Typography>
+                            )}
                         </Stack>
                     </form>
 

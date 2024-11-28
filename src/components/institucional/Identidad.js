@@ -37,6 +37,7 @@ const Identidad = forwardRef((props, ref) => {
   const [hoveredIndexObj, setHoveredIndexObj] = useState(null);
 
   return (
+<<<<<<< HEAD
     <div id="container-identidad" className="container-fluid m-0">
       <Box
         id="container-identidad"
@@ -49,6 +50,20 @@ const Identidad = forwardRef((props, ref) => {
           <Box sx={{ display: "flex", justifyContent: "center" }}>
             <BUHeaderTitle text="IDENTIDAD EMPRESARIAL" type={HeaderTypes.WHITE} />
           </Box>
+=======
+    <Box
+      id="container-identidad"
+      sx={{
+        bgcolor: "background.default",
+        p: 5
+      }}
+      ref={ref}
+    >
+      <Box sx={{ margin: theme => theme.spacing(1) }}>
+        <Box sx={{ display: "flex", justifyContent: "center" }}>
+          <BUHeaderTitle text="IDENTIDAD EMPRESARIAL" type={HeaderTypes.WHITE} />
+        </Box>
+>>>>>>> 74f786602ef1d399ae05da1a141890fe6e2acdb0
 
           {/* Pantallas grandes Mision y vision */}
           <Box sx={{ display: { xs: "none", lg: "block" }, textAlign: "center", mb: 3 }}>
