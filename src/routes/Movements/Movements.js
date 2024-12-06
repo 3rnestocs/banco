@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Box, Typography, Divider, Pagination } from '@mui/material';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
-import { getMovementsAPI } from '../api/modules/movement'; 
+import { getMovementsAPI } from '../../api/modules/movement'; 
 
 const Movements = ({ onClose }) => {
   const itemsPerPage = 10; // Number of items per page

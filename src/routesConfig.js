@@ -6,43 +6,48 @@ import Identidad from "./components/institucional/Identidad";
 import Contacto from "./components/institucional/Contacto";
 import Institucional from "./routes/institucional/Institucional";
 import Dashboard from "./routes/Dashboard/Dashboard"
-
-
-// const isAuthenticated = true; // Replace with real authentication logic
+import EditContact from "./routes/EditContact/EditContact";
 
 export const routesConfig = [
-
     {
-        path: "/",
-        component: <Institucional/>,
-    },
-    
-    {
-        path: "/login",
-        component: <Login />,
+      path: "/",
+      component: <Institucional />,
+      public: true, // Public route
     },
     {
-        path: "/servicio",
-        component: <Servicios/>,
+      path: "/login",
+      component: <Login />,
+      public: true, // Public route
     },
     {
-        path: "/identidad",
-        component: <Identidad/>,
+      path: "/register",
+      component: <Register />,
+      public: true, // Public route
     },
     {
-        path: "/contacto",
-        component: <Contacto/>,
+      path: "/dashboard",
+      component: <Dashboard />,
+      public: false, // Protected route
     },
     {
-        path: "/register",
-        component: <Register />,
-
-        // component: isAuthenticated ? <Dashboard /> : <Redirect to="/login" />,
+      path: "/edit",
+      component: <EditContact />,
+      public: false, // Protected route
     },
     {
-        path: "/dashboard",
-        component: <Dashboard/>,
+      path: "/servicio",
+      component: <Servicios />,
+      public: false, // Protected route
     },
-
-
-];
+    {
+      path: "/identidad",
+      component: <Identidad />,
+      public: false, // Protected route
+    },
+    {
+      path: "/contacto",
+      component: <Contacto />,
+      public: false, // Protected route
+    },
+  ];
+  

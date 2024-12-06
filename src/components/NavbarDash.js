@@ -15,7 +15,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { logout, selectIsLogged, selectUserLogged } from '../redux/user/userSlice';
 import { useNavigate } from 'react-router-dom';
 
-const NavbarDash = () => {
+const NavbarDash = ({ handleProfileClick }) => {
   const [anchorEl, setAnchorEl] = useState(null); // Control the popover
   const [open, setOpen] = useState(false);
   const [buttonClicked, setButtonClicked] = useState(false); // State to control popover visibility
@@ -40,14 +40,15 @@ const NavbarDash = () => {
     setButtonClicked(true); // Mark button as "clicked"
   };
 
-  const handleClose = () => {
-    setOpen(false); // Close popover
-    setButtonClicked(false); // Reset button state
+  const handleStartImg = () => {
+    navigate("/dashboard");
+    handleClose();
   };
 
-  const handleProfileClick = () => {
-    console.log('Go to user profile');
-    // Add logic to navigate to profile
+  const handleClose = () => {
+    setAnchorEl(null);
+    setOpen(false); // Close popover
+    setButtonClicked(false); // Reset button state
   };
 
   const handleLogout = () => {

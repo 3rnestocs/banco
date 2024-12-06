@@ -11,6 +11,10 @@ const theme = createTheme({
 			fontWeight: 500, // Medium
 			color: '#085F63', // Main teal text color
 		},
+		h6: {
+			fontWeight: 500, // Medium
+			color: '#085F63', // Main teal text color
+		},
 		body1: {
 			fontSize: '1em',
 			color: '#727374', // Dark gray text color

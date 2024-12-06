@@ -18,6 +18,7 @@ import {
   selectIsLogged,
   selectUserErrorMessage,
   selectUserLoading,
+  fetchBalance
 } from '../../redux/user/userSlice';
 import { hasFieldsErrors, isObjNotEmpty } from '../../utils/formValidation';
 
@@ -60,13 +61,15 @@ const Login = () => {
     if (!validateForm()) return; // Stop if validation fails
 
     // Dispatch login action
-    dispatch(login(form));
+    dispatch(login(form)).then(() => {
+      dispatch(fetchBalance());
+    });
+
   };
 
   useEffect(() => {
-    // Navigate to the dashboard if the user is logged in
     if (isLogged) {
-      navigate('/dashboard');
+      navigate('/dashboard', { replace: true }); // Avoid navigation history conflicts
     }
   }, [isLogged, navigate]);
 
